@@ -10,11 +10,11 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center justify-center bg-stone-900 text-white overflow-hidden">
         {/* Placeholder for Hero Image - using a div overlay for now, or use a solid luxury color */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1596627008826-6b225c935478?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center">
+        <div className="absolute inset-0 bg-[url('https://www.kamentabor.cz/data/files/20201128_133233-1.jpg')] bg-cover bg-center">
           <div className="absolute inset-0 bg-black/50" /> {/* Overlay */}
         </div>
         
-        <div className="relative container px-4 md:px-6 text-center z-10 space-y-6">
+        <div className="relative container mx-auto px-4 md:px-6 text-center z-10 space-y-6">
           <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight animate-fade-in-up">
             Dáváme kamenu tvář <br className="hidden md:block"/>již 80 let.
           </h1>
@@ -28,7 +28,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/kontakt">
-              <Button variant="outline" size="lg" className="rounded-none border-white text-white hover:bg-white hover:text-black hover:border-white w-full sm:w-auto">
+              <Button variant="outline" size="lg" className="rounded-none border-white text-black hover:bg-white hover:text-black hover:border-white w-full sm:w-auto">
                 Kontaktovat
               </Button>
             </Link>
@@ -38,7 +38,7 @@ export default function Home() {
 
       {/* Teaser Grid */}
       <section className="py-24 bg-white">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16 space-y-4">
             <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">Naše Specializace</h2>
             <div className="h-1 w-20 bg-accent mx-auto" />
@@ -51,7 +51,7 @@ export default function Home() {
             {/* Card 1: Hroby */}
             <Link href="/sluzby" className="group relative overflow-hidden h-96 block border border-stone-100 shadow-sm hover:shadow-xl transition-shadow">
               {/* Placeholder Image */}
-              <div className="absolute inset-0 bg-stone-200 group-hover:scale-105 transition-transform duration-500 bg-[url('https://images.unsplash.com/photo-1576495199011-eb94b36d0f97?q=80&w=2671&auto=format&fit=crop')] bg-cover bg-center" />
+              <div className="absolute inset-0 bg-stone-200 group-hover:scale-105 transition-transform duration-500 bg-[url('https://www.kamentabor.cz/data/gallery/tmava-zula-impala-cervena-zula-vanga/img/img-4488.jpg')] bg-cover bg-center" />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
               <div className="absolute bottom-0 left-0 p-8 text-white">
                 <div className="mb-2 text-accent">
@@ -69,7 +69,7 @@ export default function Home() {
 
             {/* Card 2: Interiér */}
             <Link href="/sluzby" className="group relative overflow-hidden h-96 block border border-stone-100 shadow-sm hover:shadow-xl transition-shadow">
-              <div className="absolute inset-0 bg-stone-200 group-hover:scale-105 transition-transform duration-500 bg-[url('https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=2574&auto=format&fit=crop')] bg-cover bg-center" />
+              <div className="absolute inset-0 bg-stone-200 group-hover:scale-105 transition-transform duration-500 bg-[url('/kitchen.jpg')] bg-cover bg-center" />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
               <div className="absolute bottom-0 left-0 p-8 text-white">
                 <div className="mb-2 text-accent">
@@ -87,7 +87,7 @@ export default function Home() {
 
             {/* Card 3: Renovace */}
             <Link href="/sluzby" className="group relative overflow-hidden h-96 block border border-stone-100 shadow-sm hover:shadow-xl transition-shadow">
-              <div className="absolute inset-0 bg-stone-200 group-hover:scale-105 transition-transform duration-500 bg-[url('https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center" />
+              <div className="absolute inset-0 bg-stone-200 group-hover:scale-105 transition-transform duration-500 bg-[url('/renovation.png')] bg-cover bg-center" />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
               <div className="absolute bottom-0 left-0 p-8 text-white">
                 <div className="mb-2 text-accent">
@@ -108,7 +108,7 @@ export default function Home() {
 
       {/* Trust Section */}
       <section className="py-24 bg-stone-50">
-        <div className="container px-4 md:px-6 text-center">
+        <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="font-heading text-3xl font-bold mb-6 text-foreground">Proč si vybrat nás?</h2>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
             <div className="space-y-4">

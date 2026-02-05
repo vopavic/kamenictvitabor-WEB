@@ -35,6 +35,7 @@ export function Footer() {
               <Link href="/" className="text-stone-600 hover:text-accent transition-colors w-fit">Domů</Link>
               <Link href="/o-nas" className="text-stone-600 hover:text-accent transition-colors w-fit">O nás</Link>
               <Link href="/sluzby" className="text-stone-600 hover:text-accent transition-colors w-fit">Služby</Link>
+              <Link href="/vzornik" className="text-stone-600 hover:text-accent transition-colors w-fit">Vzorník</Link>
               <Link href="/realizace" className="text-stone-600 hover:text-accent transition-colors w-fit">Realizace</Link>
               <Link href="/kontakt" className="text-stone-600 hover:text-accent transition-colors w-fit">Kontakt</Link>
             </nav>

@@ -5,14 +5,14 @@ export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen pb-20">
       <section className="bg-stone-100 py-16">
-        <div className="container px-4 md:px-6 text-center">
+        <div className="container mx-auto px-4 md:px-6 text-center">
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">Kontakt</h1>
           <p className="font-body text-xl text-stone-600">Jsme tu pro vás. Ozvěte se nám.</p>
         </div>
       </section>
 
       <section className="py-16">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
             
             {/* Left Column: Contact Info */}

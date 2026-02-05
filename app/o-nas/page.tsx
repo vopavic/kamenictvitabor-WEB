@@ -3,7 +3,7 @@ export default function AboutPage() {
     <div className="flex flex-col min-h-screen pb-20">
       {/* Hero Section */}
       <section className="bg-stone-100 py-20">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center space-y-6">
             <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground">O nás</h1>
             <p className="font-body text-xl text-stone-600">
@@ -15,7 +15,7 @@ export default function AboutPage() {
 
       {/* Story Section */}
       <section className="py-20">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <h2 className="font-heading text-3xl font-bold text-foreground">Historie a současnost</h2>
@@ -35,7 +35,7 @@ export default function AboutPage() {
             </div>
             <div className="relative h-[500px] w-full bg-stone-200 rounded-sm overflow-hidden shadow-lg">
                {/* Placeholder for About Image */}
-               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center" />
+               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1502054942078-d0df57da580a?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center" />
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@ export default function AboutPage() {
 
       {/* Process Section */}
       <section className="py-20 bg-stone-900 text-white">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16">
             <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">Jak pracujeme</h2>
             <p className="text-stone-400 font-body">Od vaší představy k hotovému dílu.</p>
@@ -72,7 +72,7 @@ export default function AboutPage() {
 
       {/* Values Section */}
       <section className="py-20">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             <div className="space-y-4">
               <h3 className="font-heading text-2xl font-bold">Tradice</h3>

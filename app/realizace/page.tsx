@@ -7,12 +7,11 @@ import { cn } from "@/lib/utils"
 
 // Dummy data for gallery
 const projects = [
-  { id: 1, category: "Hroby", image: "https://images.unsplash.com/photo-1596501042732-c7f5f922718e?q=80&w=2574&auto=format&fit=crop", title: "Urnový hrob - Žula" },
-  { id: 2, category: "Interiér", image: "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2600&auto=format&fit=crop", title: "Kuchyňská deska - Nero Assoluto" },
-  { id: 3, category: "Hroby", image: "https://images.unsplash.com/photo-1616601445749-d7bce3fd5758?q=80&w=2574&auto=format&fit=crop", title: "Dvojhrob s pomníkem" },
-  { id: 4, category: "Renovace", image: "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=2670&auto=format&fit=crop", title: "Čištění pískovce" },
-  { id: 5, category: "Interiér", image: "https://images.unsplash.com/photo-1617806118233-18e1de247200?q=80&w=2632&auto=format&fit=crop", title: "Obklad krbu" },
-  { id: 6, category: "Hroby", image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2568&auto=format&fit=crop", title: "Rodinný hrob" },
+  { id: 1, category: "Hroby", image: "https://www.kamentabor.cz/data/gallery/zula-s-hnedou-strukturou-mystery-brown-cervena-zula-multicolor-red/img/2cd9cf40-30b1-4737-89be-e65f3c381a5f.jpg", title: "Urnový hrob - Kombinace" },
+  { id: 2, category: "Interiér", image: "/kitchen.jpg", title: "Kuchyňská deska - Moderní kuchyně" },
+  { id: 3, category: "Hroby", image: "https://www.kamentabor.cz/data/gallery/zula-s-hnedou-strukturou-mystery-brown-cerna-zula-impala/img/abeb156b-43dc-4b81-aa1b-535b81624d33.jpg", title: "Moderní dvojhrob" },
+  { id: 4, category: "Renovace", image: "/renovation.png", title: "Renovace hrobu" },
+
 ]
 
 const categories = ["Vše", "Hroby", "Interiér", "Renovace"]
@@ -27,14 +26,14 @@ export default function RealizationsPage() {
   return (
     <div className="flex flex-col min-h-screen pb-20">
       <section className="bg-stone-100 py-16">
-        <div className="container px-4 md:px-6 text-center">
+        <div className="container mx-auto px-4 md:px-6 text-center">
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">Naše Realizace</h1>
           <p className="font-body text-xl text-stone-600">Prohlédněte si ukázky naší práce.</p>
         </div>
       </section>
 
       <section className="py-12">
-        <div className="container px-4 md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           {/* Filter Tabs */}
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {categories.map((cat) => (
