@@ -38,8 +38,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-body text-sm text-stone-500 mb-1">Email</p>
-                      <a href="mailto:info@kamenictvi-tabor.cz" className="text-lg text-foreground hover:text-accent transition-colors">
-                        info@kamenictvi-tabor.cz
+                      <a href="mailto:info@kamentabor.cz" className="text-lg text-foreground hover:text-accent transition-colors">
+                        info@kamentabor.cz
                       </a>
                     </div>
                   </div>

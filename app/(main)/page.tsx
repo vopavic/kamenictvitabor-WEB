@@ -40,7 +40,7 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">Naše Specializace</h2>
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">Naše specializace</h2>
             <div className="h-1 w-20 bg-accent mx-auto" />
             <p className="text-stone-600 max-w-2xl mx-auto font-body">
               Od hřbitovní architektury přes kuchyňské desky až po renovace.
@@ -51,7 +51,7 @@ export default function Home() {
             {/* Card 1: Hroby */}
             <Link href="/sluzby" className="group relative overflow-hidden h-96 block border border-stone-100 shadow-sm hover:shadow-xl transition-shadow">
               {/* Placeholder Image */}
-              <div className="absolute inset-0 bg-stone-200 group-hover:scale-105 transition-transform duration-500 bg-[url('https://www.kamentabor.cz/data/gallery/tmava-zula-impala-cervena-zula-vanga/img/img-4488.jpg')] bg-cover bg-center" />
+              <div className="absolute inset-0 bg-stone-200 group-hover:scale-105 transition-transform duration-500 bg-[url('/jednohroby/IMG_4663.jpeg')] bg-cover bg-center" />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
               <div className="absolute bottom-0 left-0 p-8 text-white">
                 <div className="mb-2 text-accent">
@@ -69,7 +69,7 @@ export default function Home() {
 
             {/* Card 2: Interiér */}
             <Link href="/sluzby" className="group relative overflow-hidden h-96 block border border-stone-100 shadow-sm hover:shadow-xl transition-shadow">
-              <div className="absolute inset-0 bg-stone-200 group-hover:scale-105 transition-transform duration-500 bg-[url('/kitchen.jpg')] bg-cover bg-center" />
+              <div className="absolute inset-0 bg-stone-200 group-hover:scale-105 transition-transform duration-500 bg-[url('/kuchynske-desky/Screenshot%202026-02-21%20153447.png')] bg-cover bg-center" />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
               <div className="absolute bottom-0 left-0 p-8 text-white">
                 <div className="mb-2 text-accent">
@@ -106,6 +106,24 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Consultation CTA */}
+      <section className="py-20 bg-stone-900 text-white">
+        <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="max-w-2xl text-center md:text-left">
+            <h2 className="font-heading text-3xl font-bold mb-4">Osobní konzultace</h2>
+            <p className="text-stone-300 font-body text-lg">
+              Pomůžeme vám s výběrem materiálu i technickým řešením. 
+              Zarezervujte si čas, který vám vyhovuje, v naší dílně nebo kanceláři.
+            </p>
+          </div>
+          <Link href="/konzultace" className="shrink-0">
+            <Button size="lg" className="rounded-none bg-accent text-white hover:bg-accent/90">
+              Domluvit schůzku
+            </Button>
+          </Link>
+        </div>
+      </section>
+
       {/* Trust Section */}
       <section className="py-24 bg-stone-50">
         <div className="container mx-auto px-4 md:px-6 text-center">
@@ -134,7 +152,7 @@ export default function Home() {
 
           <div className="mt-16 p-8 bg-white border border-stone-200 max-w-3xl mx-auto shadow-sm">
             <p className="font-heading text-xl md:text-2xl italic text-stone-700 mb-4">
-              "Ke každé zakázce přistupuji s maximální pečlivostí, jako bych ji dělal pro svou vlastní rodinu."
+              "Ke každé zakázce přistupuji s maximální pečlivostí pro maximální spokojenost našich zákazníků."
             </p>
             <p className="font-bold text-accent">— Radek Hňup, majitel</p>
           </div>

@@ -14,6 +14,7 @@ const navLinks = [
   { href: "/vzornik", label: "Vzorník" },
   { href: "/realizace", label: "Realizace" },
   { href: "/kontakt", label: "Kontakt" },
+  { href: "/konzultace", label: "Konzultace" },
 ]
 
 export function Navbar() {

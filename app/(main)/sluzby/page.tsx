@@ -30,18 +30,21 @@ export default function ServicesPage() {
               description="Elegantní řešení pro uložení uren. Nabízíme široký výběr materiálů a designů."
               href="/kontakt"
               icon={<Box size={24} />}
+              imageSrc="/urnaky/IMG_5248.jpeg"
             />
             <ServiceCard 
               title="Jednohroby a dvojhroby"
               description="Tradiční i moderní pomníky z žuly a mramoru. Kompletní realizace včetně základů."
               href="/kontakt"
               icon={<Layers size={24} />}
+              imageSrc="/jednohroby/IMG_4663.jpeg"
             />
              <ServiceCard 
               title="Renovace písma"
               description="Obnova zašlého zlacení a stříbření. Sekání nových nápisů přímo na hřbitově."
               href="/kontakt"
               icon={<Brush size={24} />}
+              imageSrc="/renovation.png"
             />
           </div>
         </div>
@@ -61,18 +64,21 @@ export default function ServicesPage() {
               description="Luxusní žulové a mramorové desky na míru. Odolnost, která vydrží věky."
               href="/kontakt"
               icon={<DraftingCompass size={24} />}
+              imageSrc="/kuchynske-desky/Screenshot 2026-02-21 153447.png"
             />
             <ServiceCard 
               title="Kamenné obklady"
               description="Obklady krbů, stěn a fasád. Přírodní kámen dodá prostoru jedinečný vzhled."
               href="/kontakt"
               icon={<Layers size={24} />}
+              imageSrc="/obklady/Screenshot 2026-02-21 153719.png"
             />
              <ServiceCard 
               title="Parapety a schody"
               description="Venkovní i vnitřní parapety a schodiště přesně na míru vašemu domu."
               href="/kontakt"
               icon={<DraftingCompass size={24} />}
+              imageSrc="/schody-parapety/Screenshot 2026-02-21 153304.png"
             />
           </div>
         </div>

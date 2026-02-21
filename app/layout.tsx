@@ -29,11 +29,7 @@ export default function RootLayout({
       <body
         className={`${playfair.variable} ${manrope.variable} antialiased bg-background text-foreground font-body flex flex-col min-h-screen`}
       >
-        <Navbar />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        {children}
       </body>
     </html>
   );

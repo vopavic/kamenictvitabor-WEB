@@ -7,14 +7,52 @@ import { cn } from "@/lib/utils"
 
 // Dummy data for gallery
 const projects = [
-  { id: 1, category: "Hroby", image: "https://www.kamentabor.cz/data/gallery/zula-s-hnedou-strukturou-mystery-brown-cervena-zula-multicolor-red/img/2cd9cf40-30b1-4737-89be-e65f3c381a5f.jpg", title: "Urnový hrob - Kombinace" },
-  { id: 2, category: "Interiér", image: "/kitchen.jpg", title: "Kuchyňská deska - Moderní kuchyně" },
-  { id: 3, category: "Hroby", image: "https://www.kamentabor.cz/data/gallery/zula-s-hnedou-strukturou-mystery-brown-cerna-zula-impala/img/abeb156b-43dc-4b81-aa1b-535b81624d33.jpg", title: "Moderní dvojhrob" },
-  { id: 4, category: "Renovace", image: "/renovation.png", title: "Renovace hrobu" },
+  // Kuchyňské desky
+  { id: 19, category: "Kuchyňské desky", image: "/kuchynske-desky/Screenshot 2026-02-21 153447.png", title: "Kuchyňská deska" },
+  { id: 20, category: "Kuchyňské desky", image: "/kuchynske-desky/Screenshot 2026-02-21 153551.png", title: "Kuchyňská deska" },
+  { id: 21, category: "Kuchyňské desky", image: "/kuchynske-desky/Screenshot 2026-02-21 153606.png", title: "Kuchyňská deska" },
+  { id: 22, category: "Kuchyňské desky", image: "/kuchynske-desky/Screenshot 2026-02-21 153637.png", title: "Kuchyňská deska" },
 
+  // Obklady
+  { id: 23, category: "Obklady", image: "/obklady/Screenshot 2026-02-21 153719.png", title: "Kamenný obklad krbu" },
+
+  // Schody a parapety
+  { id: 24, category: "Schody a parapety", image: "/schody-parapety/Screenshot 2026-02-21 153304.png", title: "Vnitřní schodiště" },
+  { id: 25, category: "Schody a parapety", image: "/schody-parapety/Screenshot 2026-02-21 153348.png", title: "Venkovní schody" },
+  { id: 26, category: "Schody a parapety", image: "/schody-parapety/Screenshot 2026-02-21 153405.png", title: "Kamenný parapet" },
+
+  // Existing Interiér
+  { id: 100, category: "Kuchyňské desky", image: "/kitchen.jpg", title: "Kuchyňská deska - Moderní kuchyně" },
+  
+  // Renovace
+  { id: 101, category: "Renovace", image: "/renovation.png", title: "Renovace hrobu" },
+
+  // Urnové hroby
+  { id: 1, category: "Urnové hroby", image: "/urnaky/IMG_5248.jpeg", title: "Urnový hrob" },
+  { id: 2, category: "Urnové hroby", image: "/urnaky/IMG_5364.jpeg", title: "Urnový hrob" },
+  { id: 3, category: "Urnové hroby", image: "/urnaky/IMG_5367.jpeg", title: "Urnový hrob" },
+  { id: 4, category: "Urnové hroby", image: "/urnaky/IMG_5491.jpeg", title: "Urnový hrob" },
+
+  // Jednohroby
+  { id: 5, category: "Jednohroby", image: "/jednohroby/44e42b48-0646-4b4c-a558-70a1defca1de.JPG", title: "Jednohrob" },
+  { id: 6, category: "Jednohroby", image: "/jednohroby/IMG_4663.jpeg", title: "Jednohrob" },
+  { id: 7, category: "Jednohroby", image: "/jednohroby/IMG_4891.jpeg", title: "Jednohrob" },
+  { id: 8, category: "Jednohroby", image: "/jednohroby/IMG_5351.jpeg", title: "Jednohrob" },
+  { id: 9, category: "Jednohroby", image: "/jednohroby/IMG_5378.jpeg", title: "Jednohrob" },
+  { id: 10, category: "Jednohroby", image: "/jednohroby/IMG_5379.jpeg", title: "Jednohrob" },
+  { id: 11, category: "Jednohroby", image: "/jednohroby/IMG_5511.jpeg", title: "Jednohrob" },
+  { id: 12, category: "Jednohroby", image: "/jednohroby/IMG_5517.jpeg", title: "Jednohrob" },
+
+  // Dvojhroby
+  { id: 13, category: "Dvojhroby", image: "/dvojhroby/56deb137-cb2f-4f96-9756-d65486e4ebab.JPG", title: "Dvojhrob" },
+  { id: 14, category: "Dvojhroby", image: "/dvojhroby/IMG_5027.jpeg", title: "Dvojhrob" },
+  { id: 15, category: "Dvojhroby", image: "/dvojhroby/IMG_5032.jpeg", title: "Dvojhrob" },
+  { id: 16, category: "Dvojhroby", image: "/dvojhroby/IMG_5268 (1).jpeg", title: "Dvojhrob" },
+  { id: 17, category: "Dvojhroby", image: "/dvojhroby/IMG_5268.jpeg", title: "Dvojhrob" },
+  { id: 18, category: "Dvojhroby", image: "/dvojhroby/IMG_5345.jpeg", title: "Dvojhrob" },
 ]
 
-const categories = ["Vše", "Hroby", "Interiér", "Renovace"]
+const categories = ["Vše", "Urnové hroby", "Jednohroby", "Dvojhroby", "Kuchyňské desky", "Obklady", "Schody a parapety", "Renovace"]
 
 export default function RealizationsPage() {
   const [filter, setFilter] = useState("Vše")
@@ -77,7 +115,7 @@ export default function RealizationsPage() {
                      {/* Using div approach for consistent styling without layout shift issues if size unknown */}
                      <div 
                         className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
-                        style={{ backgroundImage: `url(${project.image})` }}
+                        style={{ backgroundImage: `url('${project.image}')` }}
                      />
                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300" />
                      

@@ -54,9 +54,9 @@ export function Footer() {
               </div>
               <div className="block">
                 <p className="text-sm text-stone-500 mb-1">Email</p>
-                <a href="mailto:info@kamenictvi-tabor.cz" className="flex items-center gap-2 text-stone-600 hover:text-accent transition-colors">
+                <a href="mailto:info@kamentabor.cz" className="flex items-center gap-2 text-stone-600 hover:text-accent transition-colors">
                   <Mail className="w-5 h-5" />
-                  info@kamenictvi-tabor.cz
+                  info@kamentabor.cz
                 </a>
               </div>
             </div>
