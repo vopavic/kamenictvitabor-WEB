@@ -38,8 +38,8 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <p className="font-body text-sm text-stone-500 mb-1">Email</p>
-                      <a href="mailto:info@kamentabor.cz" className="text-lg text-foreground hover:text-accent transition-colors">
-                        info@kamentabor.cz
+                      <a href="mailto:kamenictvitabor@gmail.com" className="text-lg text-foreground hover:text-accent transition-colors">
+                        kamenictvitabor@gmail.com
                       </a>
                     </div>
                   </div>
@@ -52,10 +52,6 @@ export default function ContactPage() {
                       <div>
                         <p className="font-bold text-foreground">Dílna:</p>
                         <p className="text-stone-600">Vesce 44, 392 01, Vesce u Soběslavi</p>
-                      </div>
-                      <div>
-                        <p className="font-bold text-foreground">Kancelář:</p>
-                        <p className="text-stone-600">Šelmberská 2230/19, 390 02, Tábor</p>
                       </div>
                     </div>
                   </div>

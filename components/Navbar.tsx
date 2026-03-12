@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation" // Correct import for App Router
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
@@ -30,7 +31,14 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-stone-200 bg-background/90 backdrop-blur-md supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto px-4 md:px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="font-heading text-xl md:text-2xl font-bold tracking-tight text-foreground hover:text-accent transition-colors">
+        <Link href="/" className="flex items-center gap-3 font-heading text-xl md:text-2xl font-bold tracking-tight text-foreground hover:text-accent transition-colors">
+          <Image 
+            src="/icon.png" 
+            alt="Ikona Kamenictví Tábor" 
+            width={32} 
+            height={32} 
+            className="object-contain"
+          />
           Kamenictví Kámen Tábor
         </Link>
 

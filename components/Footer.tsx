@@ -21,8 +21,6 @@ export function Footer() {
                 <div className="font-body">
                   <p className="font-semibold text-foreground">Dílna:</p>
                   <p>Vesce 44, 392 01, Vesce u Soběslavi</p>
-                  <p className="font-semibold text-foreground mt-1">Kancelář:</p>
-                  <p>Šelmberská 2230/19, 390 02, Tábor</p>
                 </div>
               </div>
             </div>
@@ -54,9 +52,9 @@ export function Footer() {
               </div>
               <div className="block">
                 <p className="text-sm text-stone-500 mb-1">Email</p>
-                <a href="mailto:info@kamentabor.cz" className="flex items-center gap-2 text-stone-600 hover:text-accent transition-colors">
+                <a href="mailto:kamenictvitabor@gmail.com" className="flex items-center gap-2 text-stone-600 hover:text-accent transition-colors">
                   <Mail className="w-5 h-5" />
-                  info@kamentabor.cz
+                  kamenictvitabor@gmail.com
                 </a>
               </div>
             </div>
