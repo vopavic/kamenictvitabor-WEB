@@ -44,7 +44,7 @@ export function Footer() {
             <h3 className="font-heading text-lg font-bold text-foreground">Kontaktujte nás</h3>
             <div className="space-y-3 font-body">
               <div className="block">
-                <p className="text-sm text-stone-500 mb-1">Telefon (Majitel Radek Hňup)</p>
+                <p className="text-sm text-stone-500 mb-1">Telefon (Radek Hňup)</p>
                 <a href="tel:+420606807389" className="flex items-center gap-2 text-xl font-bold text-accent hover:text-accent/80 transition-colors">
                   <Phone className="w-5 h-5" />
                   +420 606 807 389
@@ -64,7 +64,6 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-stone-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-stone-500 font-body">
           <p>© {currentYear} Kamenictví Kámen Tábor. Všechna práva vyhrazena.</p>
-          <p>Design by AI Agent</p>
         </div>
       </div>
     </footer>

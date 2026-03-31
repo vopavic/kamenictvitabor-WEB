@@ -25,7 +25,7 @@ export default function ContactPage() {
                       <Phone size={24} />
                     </div>
                     <div>
-                      <p className="font-body text-sm text-stone-500 mb-1">Majitel Radek Hňup</p>
+                      <p className="font-body text-sm text-stone-500 mb-1">Radek Hňup</p>
                       <a href="tel:+420606807389" className="text-xl md:text-2xl font-bold text-foreground hover:text-accent transition-colors">
                         +420 606 807 389
                       </a>
@@ -126,7 +126,7 @@ export default function ContactPage() {
       {/* Google Maps Embed */}
       <section className="h-[400px] w-full bg-stone-200 grayscale hover:grayscale-0 transition-[filter] duration-500">
         <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21124.77662580556!2d14.655959950000001!3d49.414050000000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470cace123456789%3A0xabcdef1234567890!2zVsOic2NsYXZza8OpIEjFmbitb3Z5!5e0!3m2!1scs!2scz!4v1700000000000!5m2!1scs!2scz" 
+          src="https://maps.google.com/maps?q=Vesce%2044,%20392%2001,%20Vesce%20u%20Sob%C4%9Bslavi&t=&z=13&ie=UTF8&iwloc=&output=embed" 
           width="100%" 
           height="100%" 
           style={{ border: 0 }} 

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Image from "next/image" // We might not have images yet, but good to import.
 import { Button } from "@/components/ui/Button"
-import { ArrowRight, Hammer, PenTool, RefreshCcw } from "lucide-react"
+import { ArrowRight, Hammer, PenTool, RefreshCcw, Award, MapPin, CheckCircle } from "lucide-react"
 
 export default function Home() {
   return (
@@ -69,7 +69,7 @@ export default function Home() {
 
             {/* Card 2: Interiér */}
             <Link href="/sluzby" className="group relative overflow-hidden h-96 block border border-stone-100 shadow-sm hover:shadow-xl transition-shadow">
-              <div className="absolute inset-0 bg-stone-200 group-hover:scale-105 transition-transform duration-500 bg-[url('/kuchynske-desky/Screenshot%202026-02-21%20153447.png')] bg-cover bg-center" />
+              <div className="absolute inset-0 bg-stone-200 group-hover:scale-105 transition-transform duration-500 bg-[url('/kuchynske-desky/kuchyn.jpg')] bg-cover bg-center" />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors" />
               <div className="absolute bottom-0 left-0 p-8 text-white">
                 <div className="mb-2 text-accent">
@@ -130,20 +130,22 @@ export default function Home() {
           <h2 className="font-heading text-3xl font-bold mb-6 text-foreground">Proč si vybrat nás?</h2>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
             <div className="space-y-4">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-accent text-2xl font-heading font-bold border border-stone-100">80</div>
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-accent border border-stone-100">
+                <Award size={32} />
+              </div>
               <h3 className="font-bold text-xl">Let tradice</h3>
               <p className="text-stone-600">Zkušenosti předávané z generace na generaci.</p>
             </div>
             <div className="space-y-4">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-accent text-2xl font-heading font-bold border border-stone-100">
-                <span className="text-3xl">Tá</span>
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-accent border border-stone-100">
+                <MapPin size={32} />
               </div>
               <h3 className="font-bold text-xl">Lokální firma</h3>
               <p className="text-stone-600">Působíme v Táboře a okolí. Osobní přístup.</p>
             </div>
             <div className="space-y-4">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-accent text-2xl font-heading font-bold border border-stone-100">
-                <span className="text-3xl">★</span>
+              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-sm text-accent border border-stone-100">
+                <CheckCircle size={32} />
               </div>
               <h3 className="font-bold text-xl">Kvalita</h3>
               <p className="text-stone-600">Používáme jen prověřené materiály té nejvyšší kvality.</p>
@@ -154,7 +156,7 @@ export default function Home() {
             <p className="font-heading text-xl md:text-2xl italic text-stone-700 mb-4">
               "Ke každé zakázce přistupuji s maximální pečlivostí pro maximální spokojenost našich zákazníků."
             </p>
-            <p className="font-bold text-accent">— Radek Hňup, majitel</p>
+            <p className="font-bold text-accent">— Radek Hňup</p>
           </div>
         </div>
       </section>

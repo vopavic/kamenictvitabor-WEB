@@ -59,12 +59,6 @@ const stones = [
   },
    {
     category: "Žula",
-    name: "Paradiso Classico",
-    description: "Fialovo-hnědá struktura s výraznou kresbou.",
-    image: "https://images.unsplash.com/photo-1533513324632-4eeb4df7825d?q=80&w=2574&auto=format&fit=crop", // Keep unsplash fallback if not found in list or just use what I have. I'll replace with real one if I can find distinct URL, but I'll stick to what I parsed.
-  },
-   {
-    category: "Žula",
     name: "Olive Green",
     description: "Olivově zelená žula, netradiční a zajímavá.",
     image: "https://www.kamentabor.cz/data/gallery/vzornik/img/olivegrean.jpg",

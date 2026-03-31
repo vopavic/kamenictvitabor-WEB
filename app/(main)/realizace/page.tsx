@@ -9,10 +9,30 @@ import { cn } from "@/lib/utils"
 // Gallery data – all photos from public/jednohroby, public/dvojhroby, public/urnaky + other categories
 const projects = [
   // Kuchyňské desky
-  { id: 19, category: "Kuchyňské desky", image: "/kuchynske-desky/Screenshot 2026-02-21 153447.png", title: "Kuchyňská deska" },
-  { id: 20, category: "Kuchyňské desky", image: "/kuchynske-desky/Screenshot 2026-02-21 153551.png", title: "Kuchyňská deska" },
-  { id: 21, category: "Kuchyňské desky", image: "/kuchynske-desky/Screenshot 2026-02-21 153606.png", title: "Kuchyňská deska" },
-  { id: 22, category: "Kuchyňské desky", image: "/kuchynske-desky/Screenshot 2026-02-21 153637.png", title: "Kuchyňská deska" },
+  { id: 5000, category: "Kuchyňské desky", image: "/kuchynske-desky/20200523-152615.jpg", title: "Kuchyňská deska" },
+  { id: 5001, category: "Kuchyňské desky", image: "/kuchynske-desky/20200523-152648.jpg", title: "Kuchyňská deska" },
+  { id: 5002, category: "Kuchyňské desky", image: "/kuchynske-desky/20210309-185449.jpg", title: "Kuchyňská deska" },
+  { id: 5003, category: "Kuchyňské desky", image: "/kuchynske-desky/20210309-185501.jpg", title: "Kuchyňská deska" },
+  { id: 5004, category: "Kuchyňské desky", image: "/kuchynske-desky/20220430-155621.jpg", title: "Kuchyňská deska" },
+  { id: 5005, category: "Kuchyňské desky", image: "/kuchynske-desky/20220521-165330.jpg", title: "Kuchyňská deska" },
+  { id: 5006, category: "Kuchyňské desky", image: "/kuchynske-desky/316494543-679616900418257-7576551999645847971-n.jpg", title: "Kuchyňská deska" },
+  { id: 5007, category: "Kuchyňské desky", image: "/kuchynske-desky/317932907-819609425788147-5930048360522512229-n.jpg", title: "Kuchyňská deska" },
+  { id: 5008, category: "Kuchyňské desky", image: "/kuchynske-desky/318093989-5773258299430582-6897449377950133334-n.jpg", title: "Kuchyňská deska" },
+  { id: 5009, category: "Kuchyňské desky", image: "/kuchynske-desky/318197348-534464805251052-2641679863826867714-n.jpg", title: "Kuchyňská deska" },
+  { id: 5010, category: "Kuchyňské desky", image: "/kuchynske-desky/362508295-1009851063535173-6194075147812673492-n.jpg", title: "Kuchyňská deska" },
+  { id: 5011, category: "Kuchyňské desky", image: "/kuchynske-desky/362511142-285238977523963-3956035054275331862-n.jpg", title: "Kuchyňská deska" },
+  { id: 5012, category: "Kuchyňské desky", image: "/kuchynske-desky/362545134-1345218036384873-1956878317843635489-n.jpg", title: "Kuchyňská deska" },
+  { id: 5013, category: "Kuchyňské desky", image: "/kuchynske-desky/att.chn7um47l-kfmbbrpmtabopsvj4e4ulzxmhdfudfr9s.jpg", title: "Kuchyňská deska" },
+  { id: 5014, category: "Kuchyňské desky", image: "/kuchynske-desky/att.k3uczbskyux8lmecxhzwxded9jfyllycjiijqkzy3ka.jpg", title: "Kuchyňská deska" },
+  { id: 5015, category: "Kuchyňské desky", image: "/kuchynske-desky/att.xekesvfwda3ykczjg0d5r1fhopyileu05sfvrimqpae.jpg", title: "Kuchyňská deska" },
+  { id: 5016, category: "Kuchyňské desky", image: "/kuchynske-desky/kuchyn.jpg", title: "Kuchyňská deska" },
+  { id: 5017, category: "Kuchyňské desky", image: "/kuchynske-desky/p1010263.jpg", title: "Kuchyňská deska" },
+  { id: 5018, category: "Kuchyňské desky", image: "/kuchynske-desky/pict0004-1.jpg", title: "Kuchyňská deska" },
+  { id: 5019, category: "Kuchyňské desky", image: "/kuchynske-desky/pict0055.jpg", title: "Kuchyňská deska" },
+  { id: 5020, category: "Kuchyňské desky", image: "/kuchynske-desky/pict0155-1.jpg", title: "Kuchyňská deska" },
+  { id: 5021, category: "Kuchyňské desky", image: "/kuchynske-desky/pict0156.jpg", title: "Kuchyňská deska" },
+  { id: 5022, category: "Kuchyňské desky", image: "/kuchynske-desky/tel074.jpg", title: "Kuchyňská deska" },
+  { id: 5023, category: "Kuchyňské desky", image: "/kuchynske-desky/tel152.jpg", title: "Kuchyňská deska" },
 
   // Památníky
   { id: 4000, category: "Památníky", image: "/pamatniky/0300017f.jpg", title: "Památník" },
@@ -34,9 +54,37 @@ const projects = [
   { id: 4016, category: "Památníky", image: "/pamatniky/pomnik.jpg", title: "Památník" },
 
   // Schody a parapety
-  { id: 24, category: "Schody a parapety", image: "/schody-parapety/Screenshot 2026-02-21 153304.png", title: "Vnitřní schodiště" },
-  { id: 25, category: "Schody a parapety", image: "/schody-parapety/Screenshot 2026-02-21 153348.png", title: "Venkovní schody" },
-  { id: 26, category: "Schody a parapety", image: "/schody-parapety/Screenshot 2026-02-21 153405.png", title: "Kamenný parapet" },
+  { id: 9000, category: "Schody a parapety", image: "/schody-parapety/0300003c.jpg", title: "Schodiště a parapet" },
+  { id: 9001, category: "Schody a parapety", image: "/schody-parapety/20220511-201213-1.jpg", title: "Schodiště a parapet" },
+  { id: 9002, category: "Schody a parapety", image: "/schody-parapety/20220521-165226-1.jpg", title: "Schodiště a parapet" },
+  { id: 9003, category: "Schody a parapety", image: "/schody-parapety/20220521-165244-1.jpg", title: "Schodiště a parapet" },
+  { id: 9004, category: "Schody a parapety", image: "/schody-parapety/416609374-1683810558691311-5986509356530019099-n.jpg", title: "Schodiště a parapet" },
+  { id: 9005, category: "Schody a parapety", image: "/schody-parapety/416697487-1295328754487111-367587194833755778-n.jpg", title: "Schodiště a parapet" },
+  { id: 9006, category: "Schody a parapety", image: "/schody-parapety/416721095-676515258005540-9032807430603609848-n.jpg", title: "Schodiště a parapet" },
+  { id: 9007, category: "Schody a parapety", image: "/schody-parapety/417147549-203445206179605-1056675864359410225-n.jpg", title: "Schodiště a parapet" },
+  { id: 9008, category: "Schody a parapety", image: "/schody-parapety/418727633-908188344211231-473729763168416853-n.jpg", title: "Schodiště a parapet" },
+  { id: 9009, category: "Schody a parapety", image: "/schody-parapety/418925644-1449836479221514-1722086673341243734-n.jpg", title: "Schodiště a parapet" },
+  { id: 9010, category: "Schody a parapety", image: "/schody-parapety/421765623-384258390966026-6219725941781536334-n.jpg", title: "Schodiště a parapet" },
+  { id: 9011, category: "Schody a parapety", image: "/schody-parapety/421788080-398290089380537-4649196934886658256-n.jpg", title: "Schodiště a parapet" },
+  { id: 9012, category: "Schody a parapety", image: "/schody-parapety/att.35rnk3fh1yfdnorsqg4wvkhmgopigduyo3luosw3rhe.jpg", title: "Schodiště a parapet" },
+  { id: 9013, category: "Schody a parapety", image: "/schody-parapety/att.weocn6vodfssckakw21wrggaitvc5f4m8w1kjhmycuc (1).jpg", title: "Schodiště a parapet" },
+  { id: 9014, category: "Schody a parapety", image: "/schody-parapety/att.weocn6vodfssckakw21wrggaitvc5f4m8w1kjhmycuc.jpg", title: "Schodiště a parapet" },
+  { id: 9015, category: "Schody a parapety", image: "/schody-parapety/fotografie0661 (1).jpg", title: "Schodiště a parapet" },
+  { id: 9016, category: "Schody a parapety", image: "/schody-parapety/fotografie0661.jpg", title: "Schodiště a parapet" },
+  { id: 9017, category: "Schody a parapety", image: "/schody-parapety/fotografie0731.jpg", title: "Schodiště a parapet" },
+  { id: 9018, category: "Schody a parapety", image: "/schody-parapety/fotografie0739.jpg", title: "Schodiště a parapet" },
+  { id: 9019, category: "Schody a parapety", image: "/schody-parapety/img-20170728-111750.jpg", title: "Schodiště a parapet" },
+  { id: 9020, category: "Schody a parapety", image: "/schody-parapety/img-20180416-145345.jpg", title: "Schodiště a parapet" },
+  { id: 9021, category: "Schody a parapety", image: "/schody-parapety/img-20180416-145410.jpg", title: "Schodiště a parapet" },
+  { id: 9022, category: "Schody a parapety", image: "/schody-parapety/pict0028.jpg", title: "Schodiště a parapet" },
+  { id: 9023, category: "Schody a parapety", image: "/schody-parapety/pict0068.jpg", title: "Schodiště a parapet" },
+  { id: 9024, category: "Schody a parapety", image: "/schody-parapety/pict0071.jpg", title: "Schodiště a parapet" },
+  { id: 9025, category: "Schody a parapety", image: "/schody-parapety/pict0152.jpg", title: "Schodiště a parapet" },
+  { id: 9026, category: "Schody a parapety", image: "/schody-parapety/snimek053.jpg", title: "Schodiště a parapet" },
+  { id: 9027, category: "Schody a parapety", image: "/schody-parapety/tel068.jpg", title: "Schodiště a parapet" },
+  { id: 9028, category: "Schody a parapety", image: "/schody-parapety/tel087.jpg", title: "Schodiště a parapet" },
+  { id: 9029, category: "Schody a parapety", image: "/schody-parapety/telefon6023.jpg", title: "Schodiště a parapet" },
+  { id: 9030, category: "Schody a parapety", image: "/schody-parapety/telefon6040.jpg", title: "Schodiště a parapet" },
 
   // Existing Interiér
   { id: 100, category: "Kuchyňské desky", image: "/kitchen.jpg", title: "Kuchyňská deska - Moderní kuchyně" },
@@ -276,9 +324,37 @@ const projects = [
   { id: 3085, category: "Urnové hroby", image: "/urnaky/img-20211021-wa0003.2.jpg", title: "Urnový hrob" },
   { id: 3086, category: "Urnové hroby", image: "/urnaky/screenshot-20200908-173340-gallery.jpg", title: "Urnový hrob" },
   { id: 3087, category: "Urnové hroby", image: "/urnaky/urnak2-1713457955.jpg", title: "Urnový hrob" },
+
+  // Renovace
+  { id: 6000, category: "Renovace", image: "/renovace/att.ix4mi2h9yvozdq11s-vcukfhrh4-l1oj06hwqliw41a.jpg", title: "Renovace" },
+  { id: 6001, category: "Renovace", image: "/renovace/att.l6qxx8k26vztrr6rhnghi-iclyyp0pkztxsq66iaoyu.jpg", title: "Renovace" },
+  { id: 6002, category: "Renovace", image: "/renovace/att.uzgxzzrcs62vr5vjh2d3w2sorwfg4isjzqo0gp6q5-k.jpg", title: "Renovace" },
+  { id: 6003, category: "Renovace", image: "/renovace/att.velyeov6sd8-zwyjzvlcejh-ggafnjdmpsivo-5vyf4.jpg", title: "Renovace" },
+  { id: 6004, category: "Renovace", image: "/renovace/att.zaoavddbufqzygbyvf6bsasurq4jmze5s1wbarj1keg.jpg", title: "Renovace" },
+
+  // Litinové kříže
+  { id: 7000, category: "Litinové kříže", image: "/litenne-krize/20200903-190605.jpg", title: "Litinový kříž" },
+  { id: 7001, category: "Litinové kříže", image: "/litenne-krize/img-20170710-164447-effects.jpg", title: "Litinový kříž" },
+  { id: 7002, category: "Litinové kříže", image: "/litenne-krize/img-20170815-201136.jpg", title: "Litinový kříž" },
+  { id: 7003, category: "Litinové kříže", image: "/litenne-krize/img-20170817-105353.jpg", title: "Litinový kříž" },
+  { id: 7004, category: "Litinové kříže", image: "/litenne-krize/img-20181004-170835.jpg", title: "Litinový kříž" },
+  { id: 7005, category: "Litinové kříže", image: "/litenne-krize/img-20181021-172354.jpg", title: "Litinový kříž" },
+  { id: 7006, category: "Litinové kříže", image: "/litenne-krize/img-20181110-145702.jpg", title: "Litinový kříž" },
+
+  // Gravírování
+  { id: 8000, category: "Gravírování", image: "/glavirovani/490853260-1184844670319047-6096504186626387201-n.jpg", title: "Gravírování" },
+  { id: 8001, category: "Gravírování", image: "/glavirovani/img-3618.jpg", title: "Gravírování" },
+  { id: 8002, category: "Gravírování", image: "/glavirovani/img-4119.jpg", title: "Gravírování" },
+  { id: 8003, category: "Gravírování", image: "/glavirovani/img-4148.jpg", title: "Gravírování" },
+  { id: 8004, category: "Gravírování", image: "/glavirovani/img-4169.jpg", title: "Gravírování" },
+  { id: 8005, category: "Gravírování", image: "/glavirovani/img-4296.jpg", title: "Gravírování" },
+  { id: 8006, category: "Gravírování", image: "/glavirovani/img-4301.jpg", title: "Gravírování" },
+  { id: 8007, category: "Gravírování", image: "/glavirovani/img-4306.jpg", title: "Gravírování" },
+  { id: 8008, category: "Gravírování", image: "/glavirovani/img-4315.jpg", title: "Gravírování" },
+  { id: 8009, category: "Gravírování", image: "/glavirovani/img-4316.jpg", title: "Gravírování" },
 ]
 
-const categories = ["Vše", "Urnové hroby", "Jednohroby", "Dvojhroby", "Památníky", "Kuchyňské desky", "Schody a parapety", "Renovace"]
+const categories = ["Vše", "Urnové hroby", "Jednohroby", "Dvojhroby", "Památníky", "Kuchyňské desky", "Schody a parapety", "Renovace", "Litinové kříže", "Gravírování"]
 
 export default function RealizationsPage() {
   const [filter, setFilter] = useState("Vše")
