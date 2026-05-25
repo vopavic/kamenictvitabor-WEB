@@ -1,5 +1,5 @@
 import { ServiceCard } from "@/components/ui/ServiceCard"
-import { Hammer, PenTool, Layers, Box, DraftingCompass, Brush } from "lucide-react"
+import { Hammer, PenTool, Layers, Box, DraftingCompass, Brush, Award, Cross, Type } from "lucide-react"
 
 export default function ServicesPage() {
   return (
@@ -25,24 +25,52 @@ export default function ServicesPage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ServiceCard 
+            <ServiceCard
               title="Urnové hroby"
               description="Elegantní řešení pro uložení uren. Nabízíme široký výběr materiálů a designů."
-              href="/kontakt"
+              href="/realizace?cat=Urnov%C3%A9%20hroby"
               icon={<Box size={24} />}
               imageSrc="/urnaky/IMG_5248.jpeg"
             />
-            <ServiceCard 
-              title="Jednohroby a dvojhroby"
-              description="Tradiční i moderní pomníky z žuly a mramoru. Kompletní realizace včetně základů."
-              href="/kontakt"
+            <ServiceCard
+              title="Jednohroby"
+              description="Tradiční i moderní jednohroby z žuly a mramoru. Kompletní realizace včetně základů."
+              href="/realizace?cat=Jednohroby"
               icon={<Layers size={24} />}
               imageSrc="/jednohroby/IMG_4663.jpeg"
             />
-             <ServiceCard 
+            <ServiceCard
+              title="Dvojhroby"
+              description="Dvojhroby z žuly a mramoru pro důstojné společné místo posledního odpočinku."
+              href="/realizace?cat=Dvojhroby"
+              icon={<Layers size={24} />}
+              imageSrc="/dvojhroby/IMG_5345.jpeg"
+            />
+            <ServiceCard
+              title="Památníky"
+              description="Pomníky a památníky na míru — od klasických forem po moderní design."
+              href="/realizace?cat=Pam%C3%A1tn%C3%ADky"
+              icon={<Award size={24} />}
+              imageSrc="/pamatniky/pomnik.jpg"
+            />
+            <ServiceCard
+              title="Litinové a kamenné kříže"
+              description="Tradiční litinové a kamenné kříže pro hroby a pomníky. Opravy i nové realizace."
+              href="/realizace?cat=Litinov%C3%A9%20a%20kamenn%C3%A9%20k%C5%99%C3%AD%C5%BEe"
+              icon={<Cross size={24} />}
+              imageSrc="/litenne-krize/20200903-190605.jpg"
+            />
+            <ServiceCard
+              title="Gravírování"
+              description="Precizní gravírování písma, ornamentů a portrétů do kamene přímo na hřbitově."
+              href="/realizace?cat=Grav%C3%ADrov%C3%A1n%C3%AD"
+              icon={<Type size={24} />}
+              imageSrc="/glavirovani/490853260-1184844670319047-6096504186626387201-n.jpg"
+            />
+            <ServiceCard
               title="Renovace písma"
               description="Obnova zašlého zlacení a stříbření. Sekání nových nápisů přímo na hřbitově."
-              href="/kontakt"
+              href="/realizace?cat=Renovace"
               icon={<Brush size={24} />}
               imageSrc="/renovation.png"
             />
@@ -59,26 +87,26 @@ export default function ServicesPage() {
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <ServiceCard 
+            <ServiceCard
               title="Kuchyňské desky"
               description="Luxusní žulové a mramorové desky na míru. Odolnost, která vydrží věky."
-              href="/kontakt"
+              href="/realizace?cat=Kuchy%C5%88sk%C3%A9%20desky"
               icon={<DraftingCompass size={24} />}
-              imageSrc="/kuchynske-desky/Screenshot 2026-02-21 153447.png"
+              imageSrc="/kuchynske-desky/kuchyn.jpg"
             />
-            <ServiceCard 
+            <ServiceCard
               title="Kamenné obklady"
               description="Obklady krbů, stěn a fasád. Přírodní kámen dodá prostoru jedinečný vzhled."
               href="/kontakt"
               icon={<Layers size={24} />}
               imageSrc="/obklady/Screenshot 2026-02-21 153719.png"
             />
-             <ServiceCard 
+            <ServiceCard
               title="Parapety a schody"
               description="Venkovní i vnitřní parapety a schodiště přesně na míru vašemu domu."
-              href="/kontakt"
+              href="/realizace?cat=Schody%20a%20parapety"
               icon={<DraftingCompass size={24} />}
-              imageSrc="/schody-parapety/Screenshot 2026-02-21 153304.png"
+              imageSrc="/schody-parapety/fotografie0731.jpg"
             />
           </div>
         </div>

@@ -1,9 +1,9 @@
 "use client"
 
-import { useState } from "react"
-import Image from "next/image"
+import { Suspense, useCallback, useEffect, useMemo, useState } from "react"
+import { useSearchParams } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { X } from "lucide-react"
+import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 // Gallery data – all photos from public/jednohroby, public/dvojhroby, public/urnaky + other categories
@@ -67,9 +67,7 @@ const projects = [
   { id: 9010, category: "Schody a parapety", image: "/schody-parapety/421765623-384258390966026-6219725941781536334-n.jpg", title: "Schodiště a parapet" },
   { id: 9011, category: "Schody a parapety", image: "/schody-parapety/421788080-398290089380537-4649196934886658256-n.jpg", title: "Schodiště a parapet" },
   { id: 9012, category: "Schody a parapety", image: "/schody-parapety/att.35rnk3fh1yfdnorsqg4wvkhmgopigduyo3luosw3rhe.jpg", title: "Schodiště a parapet" },
-  { id: 9013, category: "Schody a parapety", image: "/schody-parapety/att.weocn6vodfssckakw21wrggaitvc5f4m8w1kjhmycuc (1).jpg", title: "Schodiště a parapet" },
   { id: 9014, category: "Schody a parapety", image: "/schody-parapety/att.weocn6vodfssckakw21wrggaitvc5f4m8w1kjhmycuc.jpg", title: "Schodiště a parapet" },
-  { id: 9015, category: "Schody a parapety", image: "/schody-parapety/fotografie0661 (1).jpg", title: "Schodiště a parapet" },
   { id: 9016, category: "Schody a parapety", image: "/schody-parapety/fotografie0661.jpg", title: "Schodiště a parapet" },
   { id: 9017, category: "Schody a parapety", image: "/schody-parapety/fotografie0731.jpg", title: "Schodiště a parapet" },
   { id: 9018, category: "Schody a parapety", image: "/schody-parapety/fotografie0739.jpg", title: "Schodiště a parapet" },
@@ -109,7 +107,6 @@ const projects = [
   { id: 1011, category: "Jednohroby", image: "/jednohroby/20201212-152838-1.jpg", title: "Jednohrob" },
   { id: 1012, category: "Jednohroby", image: "/jednohroby/20210514-184327-1.jpg", title: "Jednohrob" },
   { id: 1013, category: "Jednohroby", image: "/jednohroby/20210626-164950-1.jpg", title: "Jednohrob" },
-  { id: 1014, category: "Jednohroby", image: "/jednohroby/20210716-154026-1-1649796101.jpg", title: "Jednohrob" },
   { id: 1015, category: "Jednohroby", image: "/jednohroby/20210716-154026-1.jpg", title: "Jednohrob" },
   { id: 1016, category: "Jednohroby", image: "/jednohroby/20210802-210102-1.jpg", title: "Jednohrob" },
   { id: 1017, category: "Jednohroby", image: "/jednohroby/20210828-145821-1.jpg", title: "Jednohrob" },
@@ -172,9 +169,7 @@ const projects = [
   { id: 2015, category: "Dvojhroby", image: "/dvojhroby/20210730-164715.jpg", title: "Dvojhrob" },
   { id: 2016, category: "Dvojhroby", image: "/dvojhroby/20210730-164833.jpg", title: "Dvojhrob" },
   { id: 2017, category: "Dvojhroby", image: "/dvojhroby/20210830-185643-1.jpg", title: "Dvojhrob" },
-  { id: 2018, category: "Dvojhroby", image: "/dvojhroby/20210909-194037-1664399759.jpg", title: "Dvojhrob" },
   { id: 2019, category: "Dvojhroby", image: "/dvojhroby/20210909-194037.jpg", title: "Dvojhrob" },
-  { id: 2020, category: "Dvojhroby", image: "/dvojhroby/20210926-182034-1664399787.jpg", title: "Dvojhrob" },
   { id: 2021, category: "Dvojhroby", image: "/dvojhroby/20210926-182034.jpg", title: "Dvojhrob" },
   { id: 2022, category: "Dvojhroby", image: "/dvojhroby/20211001-172818-1.jpg", title: "Dvojhrob" },
   { id: 2023, category: "Dvojhroby", image: "/dvojhroby/20211002-164639-1.jpg", title: "Dvojhrob" },
@@ -217,7 +212,6 @@ const projects = [
   { id: 2060, category: "Dvojhroby", image: "/dvojhroby/56deb137-cb2f-4f96-9756-d65486e4ebab.JPG", title: "Dvojhrob" },
   { id: 2061, category: "Dvojhroby", image: "/dvojhroby/IMG_5027.jpeg", title: "Dvojhrob" },
   { id: 2062, category: "Dvojhroby", image: "/dvojhroby/IMG_5032.jpeg", title: "Dvojhrob" },
-  { id: 2063, category: "Dvojhroby", image: "/dvojhroby/IMG_5268 (1).jpeg", title: "Dvojhrob" },
   { id: 2064, category: "Dvojhroby", image: "/dvojhroby/IMG_5268.jpeg", title: "Dvojhrob" },
   { id: 2065, category: "Dvojhroby", image: "/dvojhroby/IMG_5345.jpeg", title: "Dvojhrob" },
   { id: 2066, category: "Dvojhroby", image: "/dvojhroby/att.wo4uibliigudbrhcvmcs3t7yx9yxbeahaeat1pl6zs.jpg", title: "Dvojhrob" },
@@ -261,7 +255,6 @@ const projects = [
   { id: 3022, category: "Urnové hroby", image: "/urnaky/20210417-191157-1.jpg", title: "Urnový hrob" },
   { id: 3023, category: "Urnové hroby", image: "/urnaky/20210428-193209-1.jpg", title: "Urnový hrob" },
   { id: 3024, category: "Urnové hroby", image: "/urnaky/20210508-171831-1.jpg", title: "Urnový hrob" },
-  { id: 3025, category: "Urnové hroby", image: "/urnaky/20210508-171831-1649428524-1.jpg", title: "Urnový hrob" },
   { id: 3026, category: "Urnové hroby", image: "/urnaky/20210521-203218-1649428524-1.jpg", title: "Urnový hrob" },
   { id: 3027, category: "Urnové hroby", image: "/urnaky/20210601-134706-1.jpg", title: "Urnový hrob" },
   { id: 3028, category: "Urnové hroby", image: "/urnaky/20210601-192806-1.jpg", title: "Urnový hrob" },
@@ -321,7 +314,6 @@ const projects = [
   { id: 3082, category: "Urnové hroby", image: "/urnaky/att.wgayv6dlvnivf9yldp3wz6qxpe928zczktvzjv4ekdi.jpg", title: "Urnový hrob" },
   { id: 3083, category: "Urnové hroby", image: "/urnaky/att.zi05hmwrv0mjkjrc-7nfgo9ozdimbrb6ibbqabuni0.jpg", title: "Urnový hrob" },
   { id: 3084, category: "Urnové hroby", image: "/urnaky/img-20181117-134959.jpg", title: "Urnový hrob" },
-  { id: 3085, category: "Urnové hroby", image: "/urnaky/img-20211021-wa0003.2.jpg", title: "Urnový hrob" },
   { id: 3086, category: "Urnové hroby", image: "/urnaky/screenshot-20200908-173340-gallery.jpg", title: "Urnový hrob" },
   { id: 3087, category: "Urnové hroby", image: "/urnaky/urnak2-1713457955.jpg", title: "Urnový hrob" },
 
@@ -333,13 +325,13 @@ const projects = [
   { id: 6004, category: "Renovace", image: "/renovace/att.zaoavddbufqzygbyvf6bsasurq4jmze5s1wbarj1keg.jpg", title: "Renovace" },
 
   // Litinové kříže
-  { id: 7000, category: "Litinové kříže", image: "/litenne-krize/20200903-190605.jpg", title: "Litinový kříž" },
-  { id: 7001, category: "Litinové kříže", image: "/litenne-krize/img-20170710-164447-effects.jpg", title: "Litinový kříž" },
-  { id: 7002, category: "Litinové kříže", image: "/litenne-krize/img-20170815-201136.jpg", title: "Litinový kříž" },
-  { id: 7003, category: "Litinové kříže", image: "/litenne-krize/img-20170817-105353.jpg", title: "Litinový kříž" },
-  { id: 7004, category: "Litinové kříže", image: "/litenne-krize/img-20181004-170835.jpg", title: "Litinový kříž" },
-  { id: 7005, category: "Litinové kříže", image: "/litenne-krize/img-20181021-172354.jpg", title: "Litinový kříž" },
-  { id: 7006, category: "Litinové kříže", image: "/litenne-krize/img-20181110-145702.jpg", title: "Litinový kříž" },
+  { id: 7000, category: "Litinové a kamenné kříže", image: "/litenne-krize/20200903-190605.jpg", title: "Litinový / kamenný kříž" },
+  { id: 7001, category: "Litinové a kamenné kříže", image: "/litenne-krize/img-20170710-164447-effects.jpg", title: "Litinový / kamenný kříž" },
+  { id: 7002, category: "Litinové a kamenné kříže", image: "/litenne-krize/img-20170815-201136.jpg", title: "Litinový / kamenný kříž" },
+  { id: 7003, category: "Litinové a kamenné kříže", image: "/litenne-krize/img-20170817-105353.jpg", title: "Litinový / kamenný kříž" },
+  { id: 7004, category: "Litinové a kamenné kříže", image: "/litenne-krize/img-20181004-170835.jpg", title: "Litinový / kamenný kříž" },
+  { id: 7005, category: "Litinové a kamenné kříže", image: "/litenne-krize/img-20181021-172354.jpg", title: "Litinový / kamenný kříž" },
+  { id: 7006, category: "Litinové a kamenné kříže", image: "/litenne-krize/img-20181110-145702.jpg", title: "Litinový / kamenný kříž" },
 
   // Gravírování
   { id: 8000, category: "Gravírování", image: "/glavirovani/490853260-1184844670319047-6096504186626387201-n.jpg", title: "Gravírování" },
@@ -354,15 +346,72 @@ const projects = [
   { id: 8009, category: "Gravírování", image: "/glavirovani/img-4316.jpg", title: "Gravírování" },
 ]
 
-const categories = ["Vše", "Urnové hroby", "Jednohroby", "Dvojhroby", "Památníky", "Kuchyňské desky", "Schody a parapety", "Renovace", "Litinové kříže", "Gravírování"]
+const categories = ["Vše", "Urnové hroby", "Jednohroby", "Dvojhroby", "Památníky", "Kuchyňské desky", "Schody a parapety", "Renovace", "Litinové a kamenné kříže", "Gravírování"]
 
-export default function RealizationsPage() {
-  const [filter, setFilter] = useState("Vše")
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+function RealizationsContent() {
+  const searchParams = useSearchParams()
+  const catParam = searchParams.get("cat")
+  const initialFilter = catParam && categories.includes(catParam) ? catParam : "Vše"
 
-  const filteredProjects = projects.filter(project => 
-    filter === "Vše" ? true : project.category === filter
+  const [filter, setFilter] = useState(initialFilter)
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+  const [zoomed, setZoomed] = useState(false)
+
+  useEffect(() => {
+    if (catParam && categories.includes(catParam)) {
+      setFilter(catParam)
+      setLightboxIndex(null)
+    }
+  }, [catParam])
+
+  const numberedProjects = useMemo(() => {
+    const counters: Record<string, number> = {}
+    return projects.map((project) => {
+      counters[project.category] = (counters[project.category] || 0) + 1
+      return { ...project, number: counters[project.category] }
+    })
+  }, [])
+
+  const filteredProjects = useMemo(
+    () => numberedProjects.filter(p => filter === "Vše" ? true : p.category === filter),
+    [numberedProjects, filter]
   )
+
+  const closeLightbox = useCallback(() => {
+    setLightboxIndex(null)
+    setZoomed(false)
+  }, [])
+
+  const showPrev = useCallback(() => {
+    setZoomed(false)
+    setLightboxIndex(i => i === null ? null : (i - 1 + filteredProjects.length) % filteredProjects.length)
+  }, [filteredProjects.length])
+
+  const showNext = useCallback(() => {
+    setZoomed(false)
+    setLightboxIndex(i => i === null ? null : (i + 1) % filteredProjects.length)
+  }, [filteredProjects.length])
+
+  useEffect(() => {
+    if (lightboxIndex === null) return
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox()
+      else if (e.key === "ArrowLeft") showPrev()
+      else if (e.key === "ArrowRight") showNext()
+      else if (e.key === "+" || e.key === "=") setZoomed(true)
+      else if (e.key === "-") setZoomed(false)
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [lightboxIndex, closeLightbox, showPrev, showNext])
+
+  useEffect(() => {
+    if (lightboxIndex === null) return
+    document.body.style.overflow = "hidden"
+    return () => { document.body.style.overflow = "" }
+  }, [lightboxIndex])
+
+  const selectedProject = lightboxIndex !== null ? filteredProjects[lightboxIndex] : null
 
   return (
     <div className="flex flex-col min-h-screen pb-20">
@@ -399,7 +448,7 @@ export default function RealizationsPage() {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
             <AnimatePresence>
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project, index) => (
                 <motion.div
                   layout
                   initial={{ opacity: 0, scale: 0.9 }}
@@ -408,24 +457,22 @@ export default function RealizationsPage() {
                   transition={{ duration: 0.3 }}
                   key={project.id}
                   className="group relative overflow-hidden rounded-sm shadow-sm cursor-pointer"
-                  onClick={() => setSelectedImage(project.image)}
+                  onClick={() => { setLightboxIndex(index); setZoomed(false) }}
                 >
                   <div className="aspect-[4/3] bg-stone-200 relative">
-                     {/* Using Next/Image would be better but requires domain config for external images. Using img tag for prototype safety or remotePatterns. */}
-                     {/* I will use standard img tag for external placeholder execution speed, or configure next.config.ts if I want to be strict. 
-                         For MVP, standard img with object-cover is fine, or simple div bg.
-                     */}
-                     {/* <img src={project.image} alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" /> */}
-                     {/* Using div approach for consistent styling without layout shift issues if size unknown */}
-                     <div 
+                     <div
                         className="absolute inset-0 bg-cover bg-center group-hover:scale-105 transition-transform duration-500"
                         style={{ backgroundImage: `url('${project.image}')` }}
                      />
                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300" />
-                     
+
+                     <span className="absolute top-3 left-3 z-10 bg-accent text-white text-xs font-bold font-body px-2.5 py-1 rounded-full shadow-md">
+                        #{project.number}
+                     </span>
+
                      <div className="absolute bottom-0 left-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">
                         <span className="text-accent text-sm font-bold uppercase tracking-wider mb-2 block">{project.category}</span>
-                        <h3 className="text-white font-heading text-xl font-bold">{project.title}</h3>
+                        <h3 className="text-white font-heading text-xl font-bold">{project.title} #{project.number}</h3>
                      </div>
                   </div>
                 </motion.div>
@@ -437,42 +484,101 @@ export default function RealizationsPage() {
 
       {/* Lightbox Modal */}
       <AnimatePresence>
-        {selectedImage && (
+        {selectedProject && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedImage(null)}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:p-8 cursor-pointer"
+            onClick={closeLightbox}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 md:p-8"
           >
-            <motion.button
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              onClick={(e) => {
-                e.stopPropagation()
-                setSelectedImage(null)
-              }}
-              className="absolute top-4 right-4 md:top-8 md:right-8 text-white hover:text-accent font-bold transition-colors z-50 bg-black/50 hover:bg-black/80 rounded-full p-2"
-            >
-              <X size={32} />
-            </motion.button>
+            {/* Top bar: counter + close */}
+            <div className="absolute top-0 left-0 right-0 z-50 flex items-center justify-between p-4 md:p-6 pointer-events-none">
+              <div className="pointer-events-auto flex items-center gap-3 bg-black/50 backdrop-blur-sm rounded-full px-4 py-2 text-white font-body text-sm">
+                <span className="text-accent font-bold">{selectedProject.category}</span>
+                <span className="text-stone-400">·</span>
+                <span>#{selectedProject.number}</span>
+                <span className="text-stone-400">·</span>
+                <span className="text-stone-300">{lightboxIndex! + 1} / {filteredProjects.length}</span>
+              </div>
+              <div className="pointer-events-auto flex items-center gap-2">
+                <button
+                  onClick={(e) => { e.stopPropagation(); setZoomed(z => !z) }}
+                  aria-label={zoomed ? "Oddálit" : "Přiblížit"}
+                  className="text-white hover:text-accent transition-colors bg-black/50 hover:bg-black/80 rounded-full p-2"
+                >
+                  {zoomed ? <ZoomOut size={24} /> : <ZoomIn size={24} />}
+                </button>
+                <button
+                  onClick={(e) => { e.stopPropagation(); closeLightbox() }}
+                  aria-label="Zavřít"
+                  className="text-white hover:text-accent transition-colors bg-black/50 hover:bg-black/80 rounded-full p-2"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+            </div>
+
+            {/* Prev arrow */}
+            {filteredProjects.length > 1 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); showPrev() }}
+                aria-label="Předchozí fotografie"
+                className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-50 text-white hover:text-accent transition-colors bg-black/50 hover:bg-black/80 rounded-full p-2 md:p-3"
+              >
+                <ChevronLeft size={32} />
+              </button>
+            )}
+
+            {/* Next arrow */}
+            {filteredProjects.length > 1 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); showNext() }}
+                aria-label="Další fotografie"
+                className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-50 text-white hover:text-accent transition-colors bg-black/50 hover:bg-black/80 rounded-full p-2 md:p-3"
+              >
+                <ChevronRight size={32} />
+              </button>
+            )}
+
+            {/* Image area */}
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              key={selectedProject.id}
+              initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-6xl h-full max-h-[90vh] flex items-center justify-center cursor-default bg-transparent"
+              className={cn(
+                "relative max-w-6xl max-h-[90vh] flex items-center justify-center bg-transparent",
+                zoomed ? "overflow-auto w-full h-full" : "overflow-hidden"
+              )}
             >
-              <img 
-                src={selectedImage} 
-                alt="Zvětšená realizace" 
-                className="max-w-full max-h-full object-contain rounded-md shadow-2xl"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={selectedProject.image}
+                alt={`${selectedProject.title} #${selectedProject.number}`}
+                onClick={() => setZoomed(z => !z)}
+                className={cn(
+                  "rounded-md shadow-2xl transition-transform duration-300 select-none",
+                  zoomed
+                    ? "max-w-none max-h-none w-auto h-auto scale-[2] cursor-zoom-out origin-center"
+                    : "max-w-full max-h-[85vh] object-contain cursor-zoom-in"
+                )}
+                draggable={false}
               />
             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
     </div>
+  )
+}
+
+export default function RealizationsPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-stone-500">Načítání…</div>}>
+      <RealizationsContent />
+    </Suspense>
   )
 }
