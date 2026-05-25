@@ -1,9 +1,48 @@
+import type { Metadata } from "next"
 import { Phone, MapPin, Mail, Clock } from "lucide-react"
 import { Button } from "@/components/ui/Button"
+import { siteConfig } from "@/lib/site-config"
+
+export const metadata: Metadata = {
+  title: "Kontakt — telefon, email, adresa dílny",
+  description: `Kontaktujte Kamenictví Tábor (Hňupovi). Telefon ${siteConfig.phoneFormatted}, email ${siteConfig.email}, dílna Vesce 44, 392 01, Vesce u Soběslavi.`,
+  alternates: { canonical: "/kontakt" },
+  openGraph: {
+    title: "Kontakt | Kamenictví Tábor",
+    description: `Telefon ${siteConfig.phoneFormatted}, email ${siteConfig.email}. Dílna ve Vesci u Soběslavi.`,
+    url: "/kontakt",
+  },
+}
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  url: `${siteConfig.url}/kontakt`,
+  about: { "@id": `${siteConfig.url}#business` },
+  mainEntity: {
+    "@type": "LocalBusiness",
+    "@id": `${siteConfig.url}#business`,
+    name: siteConfig.name,
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: siteConfig.address.streetAddress,
+      postalCode: siteConfig.address.postalCode,
+      addressLocality: siteConfig.address.addressLocality,
+      addressRegion: siteConfig.address.addressRegion,
+      addressCountry: siteConfig.address.addressCountry,
+    },
+  },
+}
 
 export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      />
       <section className="bg-stone-100 py-16">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">Kontakt</h1>

@@ -1,5 +1,18 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: "Rezervace konzultace — osobní schůzka",
+  description:
+    "Domluvte si osobní konzultaci v dílně Kamenictví Tábor (Hňupovi). Probereme váš záměr, vybereme materiál a připravíme kalkulaci.",
+  alternates: { canonical: "/konzultace" },
+  openGraph: {
+    title: "Rezervace konzultace | Kamenictví Tábor",
+    description: "Domluvte si termín osobního setkání v dílně.",
+    url: "/konzultace",
+  },
+}
 
 export default function KonzultacePage() {
   return (

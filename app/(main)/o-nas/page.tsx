@@ -1,3 +1,17 @@
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "O nás — 80 let kamenické tradice",
+  description:
+    "Rodinné kamenictví Hňupovi s 80letou tradicí. Dílna ve Vesci u Soběslavi. Tradice, spolehlivost a kvalitní materiály z českých i světových lomů.",
+  alternates: { canonical: "/o-nas" },
+  openGraph: {
+    title: "O nás | Kamenictví Tábor — Hňupovi",
+    description: "Rodinná tradice, řemeslo a kvalita. Postup od konzultace po montáž.",
+    url: "/o-nas",
+  },
+}
+
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen pb-20">

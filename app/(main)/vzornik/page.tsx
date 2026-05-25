@@ -1,6 +1,18 @@
-import Image from "next/image"
+import type { Metadata } from "next"
 import { Button } from "@/components/ui/Button"
 import Link from "next/link"
+
+export const metadata: Metadata = {
+  title: "Vzorník kamenů — žula, mramor, pískovec",
+  description:
+    "Vyberte si kámen pro váš projekt. Premium Black, Nero Zimbabwe, Star Galaxy, Viscount White, Orion, Multicolor Red, Impala Dark, Tarn, Olive Green, Vanga Red a Bianco Carrara — a desítky dalších v dílně.",
+  alternates: { canonical: "/vzornik" },
+  openGraph: {
+    title: "Vzorník kamenů | Kamenictví Tábor",
+    description: "Žuly, mramory a další materiály — vyberte si ten pravý pro váš projekt.",
+    url: "/vzornik",
+  },
+}
 
 const stones = [
   {

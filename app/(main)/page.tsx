@@ -1,11 +1,79 @@
 import Link from "next/link"
-import Image from "next/image" // We might not have images yet, but good to import.
+import type { Metadata } from "next"
 import { Button } from "@/components/ui/Button"
 import { ArrowRight, Hammer, PenTool, RefreshCcw, Award, MapPin, CheckCircle } from "lucide-react"
+import { siteConfig } from "@/lib/site-config"
+
+export const metadata: Metadata = {
+  title: `${siteConfig.name} | ${siteConfig.tagline}`,
+  description: siteConfig.description,
+  alternates: { canonical: "/" },
+}
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": `${siteConfig.url}#business`,
+  name: siteConfig.name,
+  alternateName: siteConfig.shortName,
+  description: siteConfig.description,
+  url: siteConfig.url,
+  telephone: siteConfig.phone,
+  email: siteConfig.email,
+  image: `${siteConfig.url}/icon.png`,
+  logo: `${siteConfig.url}/icon.png`,
+  priceRange: "$$",
+  foundingDate: siteConfig.founded,
+  founder: { "@type": "Person", name: siteConfig.owner },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.address.streetAddress,
+    postalCode: siteConfig.address.postalCode,
+    addressLocality: siteConfig.address.addressLocality,
+    addressRegion: siteConfig.address.addressRegion,
+    addressCountry: siteConfig.address.addressCountry,
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: siteConfig.geo.latitude,
+    longitude: siteConfig.geo.longitude,
+  },
+  areaServed: siteConfig.areaServed.map(name => ({ "@type": "Place", name })),
+  knowsAbout: [
+    "Hřbitovní architektura", "Urnové hroby", "Jednohroby", "Dvojhroby",
+    "Pomníky", "Litinové kříže", "Kamenné kříže", "Gravírování do kamene",
+    "Renovace pomníků", "Kuchyňské desky", "Kamenné obklady", "Schody",
+    "Parapety", "Žula", "Mramor",
+  ],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Kamenické služby",
+    itemListElement: [
+      "Urnové hroby", "Jednohroby", "Dvojhroby", "Památníky",
+      "Litinové a kamenné kříže", "Gravírování", "Renovace písma",
+      "Kuchyňské desky", "Kamenné obklady", "Parapety a schody",
+    ].map(name => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name, provider: { "@id": `${siteConfig.url}#business` } },
+    })),
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
+    contactType: "customer service",
+    availableLanguage: ["Czech"],
+  },
+  sameAs: [],
+}
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+      />
       
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center justify-center bg-stone-900 text-white overflow-hidden">

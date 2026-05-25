@@ -1,5 +1,18 @@
+import type { Metadata } from "next"
 import { ServiceCard } from "@/components/ui/ServiceCard"
 import { Hammer, PenTool, Layers, Box, DraftingCompass, Brush, Award, Cross, Type } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: "Naše služby — hroby, pomníky, kuchyňské desky, gravírování",
+  description:
+    "Kompletní kamenické práce v Táboře a okolí — urnové hroby, jednohroby, dvojhroby, památníky, litinové a kamenné kříže, gravírování, renovace písma, kuchyňské desky, kamenné obklady, schody a parapety.",
+  alternates: { canonical: "/sluzby" },
+  openGraph: {
+    title: "Naše služby | Kamenictví Tábor",
+    description: "Hřbitovní architektura, kuchyňské desky, schody, parapety, obklady, renovace a gravírování.",
+    url: "/sluzby",
+  },
+}
 
 export default function ServicesPage() {
   return (
