@@ -7,16 +7,38 @@ import { usePathname } from "next/navigation" // Correct import for App Router
 import { Menu, Phone, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { siteConfig } from "@/lib/site-config"
 
-const navLinks = [
-  { href: "/", label: "Domů" },
+// Desktop: 3 položky · telefon · 3 položky (logo vlevo nahrazuje „Domů")
+const leftLinks = [
   { href: "/o-nas", label: "O nás" },
   { href: "/sluzby", label: "Naše služby" },
   { href: "/vzornik", label: "Vzorník" },
+]
+
+const rightLinks = [
   { href: "/realizace", label: "Realizace" },
   { href: "/kontakt", label: "Kontakt" },
   { href: "/konzultace", label: "Konzultace" },
 ]
+
+const navLinks = [...leftLinks, ...rightLinks]
+
+const PHONE_RED = "bg-[#ca2020] hover:bg-[#a81a1a]"
+
+function DesktopLink({ link, pathname }: { link: { href: string; label: string }; pathname: string }) {
+  return (
+    <Link
+      href={link.href}
+      className={cn(
+        "text-sm font-medium transition-colors hover:text-accent font-body uppercase tracking-wider whitespace-nowrap",
+        pathname === link.href ? "text-accent" : "text-foreground/80"
+      )}
+    >
+      {link.label}
+    </Link>
+  )
+}
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -49,37 +71,43 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6 lg:gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-accent font-body uppercase tracking-wider",
-                pathname === link.href ? "text-accent" : "text-foreground/80"
-              )}
-            >
-              {link.label}
-            </Link>
+        {/* Desktop Navigation — 3 položky · telefon · 3 položky */}
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-7">
+          {leftLinks.map((link) => (
+            <DesktopLink key={link.href} link={link} pathname={pathname} />
+          ))}
+
+          <a
+            href={`tel:${siteConfig.phone}`}
+            className={cn(
+              "flex items-center gap-2 px-4 py-2 text-white rounded-full font-body font-semibold text-sm transition-colors shadow-sm whitespace-nowrap",
+              PHONE_RED
+            )}
+          >
+            <Phone size={16} />
+            {siteConfig.phoneFormatted}
+          </a>
+
+          {rightLinks.map((link) => (
+            <DesktopLink key={link.href} link={link} pathname={pathname} />
           ))}
         </nav>
 
-        {/* Right side: Phone CTA + Mobile menu */}
-        <div className="flex items-center gap-2">
-          {/* Phone — visible from sm up, full on lg */}
+        {/* Mobile/tablet: phone pill + menu button */}
+        <div className="flex items-center gap-2 lg:hidden">
           <a
-            href="tel:+420606807389"
-            className="hidden sm:flex items-center gap-2 px-3 lg:px-4 py-2 bg-accent text-white rounded-full font-body font-semibold text-sm hover:bg-accent/90 transition-colors shadow-sm"
+            href={`tel:${siteConfig.phone}`}
+            className={cn(
+              "hidden sm:flex items-center gap-2 px-3 py-2 text-white rounded-full font-body font-semibold text-sm transition-colors shadow-sm whitespace-nowrap",
+              PHONE_RED
+            )}
           >
             <Phone size={16} />
-            <span className="hidden lg:inline">+420 606 807 389</span>
-            <span className="lg:hidden">Zavolat</span>
+            {siteConfig.phoneFormatted}
           </a>
 
-          {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground hover:text-accent transition-colors"
+            className="p-2 text-foreground hover:text-accent transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
@@ -95,7 +123,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden overflow-hidden bg-background border-b border-stone-200"
+            className="lg:hidden overflow-hidden bg-background border-b border-stone-200"
           >
             <nav className="container px-4 py-6 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -111,11 +139,14 @@ export function Navbar() {
                 </Link>
               ))}
               <a
-                href="tel:+420606807389"
-                className="sm:hidden mt-2 flex items-center justify-center gap-2 px-4 py-3 bg-accent text-white rounded-full font-body font-semibold hover:bg-accent/90 transition-colors"
+                href={`tel:${siteConfig.phone}`}
+                className={cn(
+                  "sm:hidden mt-2 flex items-center justify-center gap-2 px-4 py-3 text-white rounded-full font-body font-semibold transition-colors",
+                  PHONE_RED
+                )}
               >
                 <Phone size={18} />
-                +420 606 807 389
+                {siteConfig.phoneFormatted}
               </a>
             </nav>
           </motion.div>
