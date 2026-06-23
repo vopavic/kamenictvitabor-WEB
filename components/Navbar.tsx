@@ -9,20 +9,15 @@ import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { siteConfig } from "@/lib/site-config"
 
-// Desktop: 3 položky · telefon · 3 položky (logo vlevo nahrazuje „Domů")
-const leftLinks = [
+// Desktop: všechny odkazy · telefon vpravo (logo vlevo nahrazuje „Domů")
+const navLinks = [
   { href: "/o-nas", label: "O nás" },
   { href: "/sluzby", label: "Naše služby" },
   { href: "/vzornik", label: "Vzorník" },
-]
-
-const rightLinks = [
   { href: "/realizace", label: "Realizace" },
   { href: "/kontakt", label: "Kontakt" },
   { href: "/konzultace", label: "Konzultace" },
 ]
-
-const navLinks = [...leftLinks, ...rightLinks]
 
 const PHONE_RED = "bg-[#ca2020] hover:bg-[#a81a1a]"
 
@@ -71,9 +66,9 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Navigation — 3 položky · telefon · 3 položky */}
+        {/* Desktop Navigation — odkazy · telefon vpravo */}
         <nav className="hidden lg:flex items-center gap-4 xl:gap-7">
-          {leftLinks.map((link) => (
+          {navLinks.map((link) => (
             <DesktopLink key={link.href} link={link} pathname={pathname} />
           ))}
 
@@ -87,10 +82,6 @@ export function Navbar() {
             <Phone size={16} />
             {siteConfig.phoneFormatted}
           </a>
-
-          {rightLinks.map((link) => (
-            <DesktopLink key={link.href} link={link} pathname={pathname} />
-          ))}
         </nav>
 
         {/* Mobile/tablet: phone pill + menu button */}

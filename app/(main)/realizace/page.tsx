@@ -216,7 +216,6 @@ const projects = [
   { id: 2065, category: "Dvojhroby", image: "/dvojhroby/IMG_5345.jpeg", title: "Dvojhrob" },
   { id: 2066, category: "Dvojhroby", image: "/dvojhroby/att.wo4uibliigudbrhcvmcs3t7yx9yxbeahaeat1pl6zs.jpg", title: "Dvojhrob" },
   { id: 2067, category: "Dvojhroby", image: "/dvojhroby/dvojhrob1.jpg", title: "Dvojhrob" },
-  { id: 2068, category: "Dvojhroby", image: "/dvojhroby/dvojhrob3.jpg", title: "Dvojhrob" },
   { id: 2069, category: "Dvojhroby", image: "/dvojhroby/fotografie0210.jpg", title: "Dvojhrob" },
   { id: 2070, category: "Dvojhroby", image: "/dvojhroby/fotografie0212.jpg", title: "Dvojhrob" },
   { id: 2071, category: "Dvojhroby", image: "/dvojhroby/img-20170518-131216.jpg", title: "Dvojhrob" },
@@ -303,8 +302,6 @@ const projects = [
   { id: 3071, category: "Urnové hroby", image: "/urnaky/403403593-694997742605710-2785439401994476348-n.jpg", title: "Urnový hrob" },
   { id: 3072, category: "Urnové hroby", image: "/urnaky/403415633-165124569991871-4993450458645886210-n.jpg", title: "Urnový hrob" },
   { id: 3073, category: "Urnové hroby", image: "/urnaky/IMG_5248.jpeg", title: "Urnový hrob" },
-  { id: 3074, category: "Urnové hroby", image: "/urnaky/IMG_5364.jpeg", title: "Urnový hrob" },
-  { id: 3075, category: "Urnové hroby", image: "/urnaky/IMG_5367.jpeg", title: "Urnový hrob" },
   { id: 3076, category: "Urnové hroby", image: "/urnaky/IMG_5491.jpeg", title: "Urnový hrob" },
   { id: 3077, category: "Urnové hroby", image: "/urnaky/att.aiycii7foitmimt6xlrpou7sjr2owjqv4wewdwqd-l4.jpg", title: "Urnový hrob" },
   { id: 3078, category: "Urnové hroby", image: "/urnaky/att.g8ycw-qpepkgou-anhxckybs4hhalf2somzdsawmgcw.jpg", title: "Urnový hrob" },
@@ -318,6 +315,7 @@ const projects = [
   { id: 3087, category: "Urnové hroby", image: "/urnaky/urnak2-1713457955.jpg", title: "Urnový hrob" },
 
   // Renovace
+  { id: 2068, category: "Renovace", image: "/dvojhroby/dvojhrob3.jpg", title: "Renovace" },
   { id: 6000, category: "Renovace", image: "/renovace/att.ix4mi2h9yvozdq11s-vcukfhrh4-l1oj06hwqliw41a.jpg", title: "Renovace" },
   { id: 6001, category: "Renovace", image: "/renovace/att.l6qxx8k26vztrr6rhnghi-iclyyp0pkztxsq66iaoyu.jpg", title: "Renovace" },
   { id: 6002, category: "Renovace", image: "/renovace/att.uzgxzzrcs62vr5vjh2d3w2sorwfg4isjzqo0gp6q5-k.jpg", title: "Renovace" },

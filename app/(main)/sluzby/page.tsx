@@ -57,7 +57,7 @@ export default function ServicesPage() {
               description="Dvojhroby z žuly a mramoru pro důstojné společné místo posledního odpočinku."
               href="/realizace?cat=Dvojhroby"
               icon={<Layers size={24} />}
-              imageSrc="/dvojhroby/IMG_5345.jpeg"
+              imageSrc="/dvojhroby/IMG_5032.jpeg"
             />
             <ServiceCard
               title="Památníky"

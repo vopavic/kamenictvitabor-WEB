@@ -78,7 +78,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center justify-center bg-stone-900 text-white overflow-hidden">
         {/* Placeholder for Hero Image - using a div overlay for now, or use a solid luxury color */}
-        <div className="absolute inset-0 bg-[url('/dvojhroby/IMG_5268.jpeg')] bg-cover bg-center">
+        <div className="absolute inset-0 bg-[url('/dvojhroby/IMG_5032.jpeg')] bg-cover bg-center">
           <div className="absolute inset-0 bg-black/50" /> {/* Overlay */}
         </div>
         
