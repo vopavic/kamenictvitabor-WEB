@@ -1,6 +1,9 @@
 import type { Metadata } from "next"
 import { ServiceCard } from "@/components/ui/ServiceCard"
-import { Hammer, PenTool, Layers, Box, DraftingCompass, Brush, Award, Cross, Type } from "lucide-react"
+import { Hammer, PenTool, Layers, Box, DraftingCompass, Brush, Award, Cross, Type, ChevronDown } from "lucide-react"
+import { siteConfig } from "@/lib/site-config"
+import { JsonLd } from "@/components/JsonLd"
+import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Naše služby — hroby, pomníky, kuchyňské desky, gravírování",
@@ -17,6 +20,15 @@ export const metadata: Metadata = {
 export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-screen pb-20">
+      <JsonLd
+        data={[
+          breadcrumbJsonLd([
+            { name: "Domů", path: "/" },
+            { name: "Naše služby", path: "/sluzby" },
+          ]),
+          faqJsonLd(siteConfig.faq),
+        ]}
+      />
       {/* Hero Section */}
       <section className="bg-stone-100 py-20">
         <div className="container mx-auto px-4 md:px-6">
@@ -121,6 +133,30 @@ export default function ServicesPage() {
               icon={<DraftingCompass size={24} />}
               imageSrc="/schody-parapety/fotografie0731.jpg"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Často kladené dotazy */}
+      <section className="py-20 bg-stone-50">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="mb-12 text-center">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">Často kladené dotazy</h2>
+            <div className="h-1 w-20 bg-accent mx-auto mt-4" />
+          </div>
+          <div className="max-w-3xl mx-auto divide-y divide-stone-200 border-y border-stone-200">
+            {siteConfig.faq.map((item) => (
+              <details key={item.q} className="group py-5">
+                <summary className="flex cursor-pointer items-center justify-between gap-4 font-heading text-lg font-bold text-foreground list-none">
+                  {item.q}
+                  <ChevronDown
+                    size={22}
+                    className="shrink-0 text-accent transition-transform duration-300 group-open:rotate-180"
+                  />
+                </summary>
+                <p className="mt-3 font-body text-stone-600 leading-relaxed">{item.a}</p>
+              </details>
+            ))}
           </div>
         </div>
       </section>

@@ -2,6 +2,8 @@ import type { Metadata } from "next"
 import { Phone, MapPin, Mail, Clock } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { siteConfig } from "@/lib/site-config"
+import { JsonLd } from "@/components/JsonLd"
+import { breadcrumbJsonLd } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Kontakt — telefon, email, adresa dílny",
@@ -39,9 +41,14 @@ const contactJsonLd = {
 export default function ContactPage() {
   return (
     <div className="flex flex-col min-h-screen pb-20">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
+      <JsonLd
+        data={[
+          contactJsonLd,
+          breadcrumbJsonLd([
+            { name: "Domů", path: "/" },
+            { name: "Kontakt", path: "/kontakt" },
+          ]),
+        ]}
       />
       <section className="bg-stone-100 py-16">
         <div className="container mx-auto px-4 md:px-6 text-center">

@@ -1,6 +1,9 @@
 import type { Metadata } from "next"
 import { Button } from "@/components/ui/Button"
 import Link from "next/link"
+import { siteConfig } from "@/lib/site-config"
+import { JsonLd } from "@/components/JsonLd"
+import { BUSINESS_ID, breadcrumbJsonLd } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Vzorník kamenů — žula, mramor, pískovec",
@@ -83,9 +86,43 @@ const stones = [
   },
 ]
 
+const vzornikJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  url: `${siteConfig.url}/vzornik`,
+  name: "Vzorník kamenů — žula, mramor, pískovec",
+  description: "Výběr nejoblíbenějších kamenů pro pomníky, desky a obklady. V dílně desítky dalších vzorků z českých i světových lomů.",
+  about: { "@id": BUSINESS_ID },
+  mainEntity: {
+    "@type": "ItemList",
+    name: "Vzorník kamenů",
+    itemListElement: stones.map((stone, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Product",
+        name: stone.name,
+        category: stone.category,
+        description: stone.description,
+        image: stone.image,
+        material: stone.category,
+      },
+    })),
+  },
+}
+
 export default function VzornikPage() {
   return (
     <div className="flex flex-col min-h-screen pb-20">
+      <JsonLd
+        data={[
+          vzornikJsonLd,
+          breadcrumbJsonLd([
+            { name: "Domů", path: "/" },
+            { name: "Vzorník", path: "/vzornik" },
+          ]),
+        ]}
+      />
       {/* Hero Section */}
       <section className="bg-stone-100 py-16">
         <div className="container mx-auto px-4 md:px-6 text-center">

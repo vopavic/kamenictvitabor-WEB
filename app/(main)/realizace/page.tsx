@@ -5,6 +5,9 @@ import { useSearchParams } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { siteConfig } from "@/lib/site-config"
+import { JsonLd } from "@/components/JsonLd"
+import { BUSINESS_ID, breadcrumbJsonLd } from "@/lib/structured-data"
 
 // Gallery data – all photos from public/jednohroby, public/dvojhroby, public/urnaky + other categories
 const projects = [
@@ -346,6 +349,27 @@ const projects = [
 
 const categories = ["Vše", "Urnové hroby", "Jednohroby", "Dvojhroby", "Památníky", "Kuchyňské desky", "Schody a parapety", "Renovace", "Litinové a kamenné kříže", "Gravírování"]
 
+const realizaceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  url: `${siteConfig.url}/realizace`,
+  name: "Realizace — galerie naší práce",
+  description: "Galerie dokončených kamenických realizací: urnové hroby, jednohroby, dvojhroby, památníky, kuchyňské desky, schody, parapety, renovace, kříže a gravírování.",
+  about: { "@id": BUSINESS_ID },
+  mainEntity: {
+    "@type": "ItemList",
+    name: "Kategorie realizací",
+    itemListElement: categories
+      .filter((c) => c !== "Vše")
+      .map((c, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: c,
+        url: `${siteConfig.url}/realizace?cat=${encodeURIComponent(c)}`,
+      })),
+  },
+}
+
 function RealizationsContent() {
   const searchParams = useSearchParams()
   const catParam = searchParams.get("cat")
@@ -575,8 +599,19 @@ function RealizationsContent() {
 
 export default function RealizationsPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-stone-500">Načítání…</div>}>
-      <RealizationsContent />
-    </Suspense>
+    <>
+      <JsonLd
+        data={[
+          realizaceJsonLd,
+          breadcrumbJsonLd([
+            { name: "Domů", path: "/" },
+            { name: "Realizace", path: "/realizace" },
+          ]),
+        ]}
+      />
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-stone-500">Načítání…</div>}>
+        <RealizationsContent />
+      </Suspense>
+    </>
   )
 }
