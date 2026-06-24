@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { siteConfig } from "@/lib/site-config"
 
-// „Domů" nahrazuje logo vlevo; telefon je na konci menu vpravo
+// Desktop: všechny odkazy · telefon vpravo (logo vlevo nahrazuje „Domů")
 const navLinks = [
   { href: "/o-nas", label: "O nás" },
   { href: "/sluzby", label: "Naše služby" },
@@ -52,20 +52,22 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
+        {/* Desktop Navigation — odkazy · telefon vpravo */}
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-7">
           {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-accent font-body uppercase tracking-wider whitespace-nowrap",
-                pathname === link.href ? "text-accent" : "text-foreground/80"
-              )}
-            >
-              {link.label}
-            </Link>
+            <DesktopLink key={link.href} link={link} pathname={pathname} />
           ))}
+
+          <a
+            href={`tel:${siteConfig.phone}`}
+            className={cn(
+              "flex items-center gap-2 px-4 py-2 text-white rounded-full font-body font-semibold text-sm transition-colors shadow-sm whitespace-nowrap",
+              PHONE_RED
+            )}
+          >
+            <Phone size={16} />
+            {siteConfig.phoneFormatted}
+          </a>
         </nav>
 
         {/* Right side: Phone CTA + Mobile menu */}

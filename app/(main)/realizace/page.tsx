@@ -5,6 +5,9 @@ import { useSearchParams } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { siteConfig } from "@/lib/site-config"
+import { JsonLd } from "@/components/JsonLd"
+import { BUSINESS_ID, breadcrumbJsonLd } from "@/lib/structured-data"
 
 // Gallery data – all photos from public/jednohroby, public/dvojhroby, public/urnaky + other categories
 const projects = [
@@ -239,7 +242,6 @@ const projects = [
   { id: 2065, category: "Dvojhroby", image: "/dvojhroby/IMG_5345.jpeg", title: "Dvojhrob" },
   { id: 2066, category: "Dvojhroby", image: "/dvojhroby/att.wo4uibliigudbrhcvmcs3t7yx9yxbeahaeat1pl6zs.jpg", title: "Dvojhrob" },
   { id: 2067, category: "Dvojhroby", image: "/dvojhroby/dvojhrob1.jpg", title: "Dvojhrob" },
-  { id: 2068, category: "Dvojhroby", image: "/dvojhroby/dvojhrob3.jpg", title: "Dvojhrob" },
   { id: 2069, category: "Dvojhroby", image: "/dvojhroby/fotografie0210.jpg", title: "Dvojhrob" },
   { id: 2070, category: "Dvojhroby", image: "/dvojhroby/fotografie0212.jpg", title: "Dvojhrob" },
   { id: 2071, category: "Dvojhroby", image: "/dvojhroby/img-20170518-131216.jpg", title: "Dvojhrob" },
@@ -343,8 +345,6 @@ const projects = [
   { id: 3071, category: "Urnové hroby", image: "/urnaky/403403593-694997742605710-2785439401994476348-n.jpg", title: "Urnový hrob" },
   { id: 3072, category: "Urnové hroby", image: "/urnaky/403415633-165124569991871-4993450458645886210-n.jpg", title: "Urnový hrob" },
   { id: 3073, category: "Urnové hroby", image: "/urnaky/IMG_5248.jpeg", title: "Urnový hrob" },
-  { id: 3074, category: "Urnové hroby", image: "/urnaky/IMG_5364.jpeg", title: "Urnový hrob" },
-  { id: 3075, category: "Urnové hroby", image: "/urnaky/IMG_5367.jpeg", title: "Urnový hrob" },
   { id: 3076, category: "Urnové hroby", image: "/urnaky/IMG_5491.jpeg", title: "Urnový hrob" },
   { id: 3077, category: "Urnové hroby", image: "/urnaky/att.aiycii7foitmimt6xlrpou7sjr2owjqv4wewdwqd-l4.jpg", title: "Urnový hrob" },
   { id: 3078, category: "Urnové hroby", image: "/urnaky/att.g8ycw-qpepkgou-anhxckybs4hhalf2somzdsawmgcw.jpg", title: "Urnový hrob" },
@@ -358,6 +358,7 @@ const projects = [
   { id: 3087, category: "Urnové hroby", image: "/urnaky/urnak2-1713457955.jpg", title: "Urnový hrob" },
 
   // Renovace
+  { id: 2068, category: "Renovace", image: "/dvojhroby/dvojhrob3.jpg", title: "Renovace" },
   { id: 6000, category: "Renovace", image: "/renovace/att.ix4mi2h9yvozdq11s-vcukfhrh4-l1oj06hwqliw41a.jpg", title: "Renovace" },
   { id: 6001, category: "Renovace", image: "/renovace/att.l6qxx8k26vztrr6rhnghi-iclyyp0pkztxsq66iaoyu.jpg", title: "Renovace" },
   { id: 6002, category: "Renovace", image: "/renovace/att.uzgxzzrcs62vr5vjh2d3w2sorwfg4isjzqo0gp6q5-k.jpg", title: "Renovace" },
@@ -387,6 +388,27 @@ const projects = [
 ]
 
 const categories = ["Vše", "Urnové hroby", "Jednohroby", "Dvojhroby", "Památníky", "Kuchyňské desky", "Schody a parapety", "Renovace", "Litinové a kamenné kříže", "Gravírování"]
+
+const realizaceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  url: `${siteConfig.url}/realizace`,
+  name: "Realizace — galerie naší práce",
+  description: "Galerie dokončených kamenických realizací: urnové hroby, jednohroby, dvojhroby, památníky, kuchyňské desky, schody, parapety, renovace, kříže a gravírování.",
+  about: { "@id": BUSINESS_ID },
+  mainEntity: {
+    "@type": "ItemList",
+    name: "Kategorie realizací",
+    itemListElement: categories
+      .filter((c) => c !== "Vše")
+      .map((c, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: c,
+        url: `${siteConfig.url}/realizace?cat=${encodeURIComponent(c)}`,
+      })),
+  },
+}
 
 function RealizationsContent() {
   const searchParams = useSearchParams()
@@ -617,8 +639,19 @@ function RealizationsContent() {
 
 export default function RealizationsPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-stone-500">Načítání…</div>}>
-      <RealizationsContent />
-    </Suspense>
+    <>
+      <JsonLd
+        data={[
+          realizaceJsonLd,
+          breadcrumbJsonLd([
+            { name: "Domů", path: "/" },
+            { name: "Realizace", path: "/realizace" },
+          ]),
+        ]}
+      />
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-stone-500">Načítání…</div>}>
+        <RealizationsContent />
+      </Suspense>
+    </>
   )
 }

@@ -1,4 +1,7 @@
 import type { Metadata } from "next"
+import { siteConfig } from "@/lib/site-config"
+import { JsonLd } from "@/components/JsonLd"
+import { BUSINESS_ID, breadcrumbJsonLd } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "O nás — 80 let kamenické tradice",
@@ -12,9 +15,34 @@ export const metadata: Metadata = {
   },
 }
 
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  url: `${siteConfig.url}/o-nas`,
+  name: "O nás — Kamenictví Tábor (Hňupovi)",
+  about: { "@id": BUSINESS_ID },
+  mainEntity: {
+    "@type": "LocalBusiness",
+    "@id": BUSINESS_ID,
+    name: siteConfig.name,
+    foundingDate: siteConfig.founded,
+    founder: { "@type": "Person", name: siteConfig.owner },
+    description: siteConfig.description,
+  },
+}
+
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen pb-20">
+      <JsonLd
+        data={[
+          aboutJsonLd,
+          breadcrumbJsonLd([
+            { name: "Domů", path: "/" },
+            { name: "O nás", path: "/o-nas" },
+          ]),
+        ]}
+      />
       {/* Hero Section */}
       <section className="bg-stone-100 py-20">
         <div className="container mx-auto px-4 md:px-6">

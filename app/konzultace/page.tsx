@@ -1,6 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
+import { siteConfig } from "@/lib/site-config"
+import { JsonLd } from "@/components/JsonLd"
+import { BUSINESS_ID, breadcrumbJsonLd } from "@/lib/structured-data"
 
 export const metadata: Metadata = {
   title: "Rezervace konzultace — osobní schůzka",
@@ -14,9 +17,32 @@ export const metadata: Metadata = {
   },
 }
 
+const konzultaceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  url: `${siteConfig.url}/konzultace`,
+  name: "Rezervace konzultace — Kamenictví Tábor (Hňupovi)",
+  about: { "@id": BUSINESS_ID },
+  potentialAction: {
+    "@type": "ReserveAction",
+    name: "Rezervace konzultace",
+    target: `${siteConfig.url}/konzultace`,
+    result: { "@type": "Reservation", name: "Osobní konzultace v dílně" },
+  },
+}
+
 export default function KonzultacePage() {
   return (
     <div className="min-h-screen bg-white p-4 md:p-8 flex flex-col items-center">
+      <JsonLd
+        data={[
+          konzultaceJsonLd,
+          breadcrumbJsonLd([
+            { name: "Domů", path: "/" },
+            { name: "Rezervace konzultace", path: "/konzultace" },
+          ]),
+        ]}
+      />
       {/* Navigation */}
       <div className="w-full max-w-5xl mb-8">
         <Link 

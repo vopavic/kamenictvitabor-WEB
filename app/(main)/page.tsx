@@ -1,7 +1,7 @@
 import Link from "next/link"
 import type { Metadata } from "next"
 import { Button } from "@/components/ui/Button"
-import { ArrowRight, Hammer, PenTool, RefreshCcw, Award, MapPin, CheckCircle } from "lucide-react"
+import { ArrowRight, Hammer, PenTool, RefreshCcw, Award, MapPin, CheckCircle, Star } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = {
@@ -64,7 +64,20 @@ const localBusinessJsonLd = {
     contactType: "customer service",
     availableLanguage: ["Czech"],
   },
-  sameAs: [],
+  sameAs: siteConfig.sameAs,
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: siteConfig.rating.value,
+    reviewCount: siteConfig.rating.count,
+    bestRating: 5,
+    worstRating: 1,
+  },
+  review: siteConfig.reviews.map((r) => ({
+    "@type": "Review",
+    author: { "@type": "Person", name: r.author },
+    reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5, worstRating: 1 },
+    ...(r.body ? { reviewBody: r.body } : {}),
+  })),
 }
 
 export default function Home() {
@@ -78,7 +91,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center justify-center bg-stone-900 text-white overflow-hidden">
         {/* Placeholder for Hero Image - using a div overlay for now, or use a solid luxury color */}
-        <div className="absolute inset-0 bg-[url('/dvojhroby/IMG_5268.jpeg')] bg-cover bg-center">
+        <div className="absolute inset-0 bg-[url('/dvojhroby/IMG_5032.jpeg')] bg-cover bg-center">
           <div className="absolute inset-0 bg-black/50" /> {/* Overlay */}
         </div>
         
@@ -225,6 +238,41 @@ export default function Home() {
               "Ke každé zakázce přistupuji s maximální pečlivostí pro maximální spokojenost našich zákazníků."
             </p>
             <p className="font-bold text-accent">— Radek Hňup</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Reference / Google recenze */}
+      <section className="py-24 bg-white">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12 space-y-4">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">Reference zákazníků</h2>
+            <div className="flex items-center justify-center gap-2">
+              <div className="flex" aria-hidden="true">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star key={i} size={22} className="text-accent fill-accent" />
+                ))}
+              </div>
+              <span className="font-body text-stone-600">
+                {siteConfig.rating.value.toLocaleString("cs-CZ")} z 5 · {siteConfig.rating.count} hodnocení na Googlu
+              </span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {siteConfig.reviews.map((review) => (
+              <div key={review.author} className="p-6 bg-stone-50 border border-stone-200 rounded-sm flex flex-col gap-3">
+                <div className="flex" aria-label={`Hodnocení ${review.rating} z 5`}>
+                  {Array.from({ length: review.rating }).map((_, i) => (
+                    <Star key={i} size={16} className="text-accent fill-accent" />
+                  ))}
+                </div>
+                {review.body && (
+                  <p className="font-body text-stone-700 leading-relaxed italic">„{review.body}"</p>
+                )}
+                <p className="font-body font-bold text-foreground mt-auto">{review.author}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
