@@ -96,6 +96,19 @@ const projects = [
   // ═══════════════════════════════════════════
   // Jednohroby (all 55 photos)
   // ═══════════════════════════════════════════
+  { id: 1100, category: "Jednohroby", image: "/jednohroby/jednohrob-2026-01.jpg", title: "Jednohrob" },
+  { id: 1101, category: "Jednohroby", image: "/jednohroby/jednohrob-2026-02.jpg", title: "Jednohrob" },
+  { id: 1102, category: "Jednohroby", image: "/jednohroby/jednohrob-2026-03.jpg", title: "Jednohrob" },
+  { id: 1103, category: "Jednohroby", image: "/jednohroby/jednohrob-2026-04.jpg", title: "Jednohrob" },
+  { id: 1104, category: "Jednohroby", image: "/jednohroby/jednohrob-2026-05.jpg", title: "Jednohrob" },
+  { id: 1105, category: "Jednohroby", image: "/jednohroby/jednohrob-2026-06.jpg", title: "Jednohrob" },
+  { id: 1106, category: "Jednohroby", image: "/jednohroby/jednohrob-2026-07.jpg", title: "Jednohrob" },
+  { id: 1107, category: "Jednohroby", image: "/jednohroby/jednohrob-2026-08.jpg", title: "Jednohrob" },
+  { id: 1108, category: "Jednohroby", image: "/jednohroby/jednohrob-2026-09.jpg", title: "Jednohrob" },
+  { id: 1109, category: "Jednohroby", image: "/jednohroby/jednohrob-2026-10.jpg", title: "Jednohrob" },
+  { id: 1110, category: "Jednohroby", image: "/jednohroby/jednohrob-2026-11.jpg", title: "Jednohrob" },
+  { id: 1111, category: "Jednohroby", image: "/jednohroby/jednohrob-2026-12.jpg", title: "Jednohrob" },
+  { id: 1112, category: "Jednohroby", image: "/jednohroby/jednohrob-2026-13.jpg", title: "Jednohrob" },
   { id: 1000, category: "Jednohroby", image: "/jednohroby/20200428-194923-1.jpg", title: "Jednohrob" },
   { id: 1001, category: "Jednohroby", image: "/jednohroby/20200516-152749-1.jpg", title: "Jednohrob" },
   { id: 1002, category: "Jednohroby", image: "/jednohroby/20200603-201729-1.jpg", title: "Jednohrob" },
@@ -154,6 +167,16 @@ const projects = [
   // ═══════════════════════════════════════════
   // Dvojhroby (all 78 photos)
   // ═══════════════════════════════════════════
+  { id: 2100, category: "Dvojhroby", image: "/dvojhroby/dvojhrob-2026-01.jpg", title: "Dvojhrob" },
+  { id: 2101, category: "Dvojhroby", image: "/dvojhroby/dvojhrob-2026-02.jpg", title: "Dvojhrob" },
+  { id: 2102, category: "Dvojhroby", image: "/dvojhroby/dvojhrob-2026-03.jpg", title: "Dvojhrob" },
+  { id: 2103, category: "Dvojhroby", image: "/dvojhroby/dvojhrob-2026-04.jpg", title: "Dvojhrob" },
+  { id: 2104, category: "Dvojhroby", image: "/dvojhroby/dvojhrob-2026-05.jpg", title: "Dvojhrob" },
+  { id: 2105, category: "Dvojhroby", image: "/dvojhroby/dvojhrob-2026-06.jpg", title: "Dvojhrob" },
+  { id: 2106, category: "Dvojhroby", image: "/dvojhroby/dvojhrob-2026-07.jpg", title: "Dvojhrob" },
+  { id: 2107, category: "Dvojhroby", image: "/dvojhroby/dvojhrob-2026-08.jpg", title: "Dvojhrob" },
+  { id: 2108, category: "Dvojhroby", image: "/dvojhroby/dvojhrob-2026-09.jpg", title: "Dvojhrob" },
+  { id: 2109, category: "Dvojhroby", image: "/dvojhroby/dvojhrob-2026-10.jpg", title: "Dvojhrob" },
   { id: 2000, category: "Dvojhroby", image: "/dvojhroby/20200502-152932-1.jpg", title: "Dvojhrob" },
   { id: 2001, category: "Dvojhroby", image: "/dvojhroby/20200516-181627-1.jpg", title: "Dvojhrob" },
   { id: 2002, category: "Dvojhroby", image: "/dvojhroby/20200613-132835-1.jpg", title: "Dvojhrob" },
@@ -232,6 +255,23 @@ const projects = [
   // ═══════════════════════════════════════════
   // Urnové hroby (all 88 photos)
   // ═══════════════════════════════════════════
+  { id: 3100, category: "Urnové hroby", image: "/urnaky/urnak-2026-01.jpg", title: "Urnový hrob" },
+  { id: 3101, category: "Urnové hroby", image: "/urnaky/urnak-2026-02.jpg", title: "Urnový hrob" },
+  { id: 3102, category: "Urnové hroby", image: "/urnaky/urnak-2026-03.jpg", title: "Urnový hrob" },
+  { id: 3103, category: "Urnové hroby", image: "/urnaky/urnak-2026-04.jpg", title: "Urnový hrob" },
+  { id: 3104, category: "Urnové hroby", image: "/urnaky/urnak-2026-05.jpg", title: "Urnový hrob" },
+  { id: 3105, category: "Urnové hroby", image: "/urnaky/urnak-2026-06.jpg", title: "Urnový hrob" },
+  { id: 3106, category: "Urnové hroby", image: "/urnaky/urnak-2026-07.jpg", title: "Urnový hrob" },
+  { id: 3107, category: "Urnové hroby", image: "/urnaky/urnak-2026-08.jpg", title: "Urnový hrob" },
+  { id: 3108, category: "Urnové hroby", image: "/urnaky/urnak-2026-09.jpg", title: "Urnový hrob" },
+  { id: 3109, category: "Urnové hroby", image: "/urnaky/urnak-2026-10.jpg", title: "Urnový hrob" },
+  { id: 3110, category: "Urnové hroby", image: "/urnaky/urnak-2026-11.jpg", title: "Urnový hrob" },
+  { id: 3111, category: "Urnové hroby", image: "/urnaky/urnak-2026-12.jpg", title: "Urnový hrob" },
+  { id: 3112, category: "Urnové hroby", image: "/urnaky/urnak-2026-13.jpg", title: "Urnový hrob" },
+  { id: 3113, category: "Urnové hroby", image: "/urnaky/urnak-2026-14.jpg", title: "Urnový hrob" },
+  { id: 3114, category: "Urnové hroby", image: "/urnaky/urnak-2026-15.jpg", title: "Urnový hrob" },
+  { id: 3115, category: "Urnové hroby", image: "/urnaky/urnak-2026-16.jpg", title: "Urnový hrob" },
+  { id: 3116, category: "Urnové hroby", image: "/urnaky/urnak-2026-17.jpg", title: "Urnový hrob" },
   { id: 3000, category: "Urnové hroby", image: "/urnaky/030003f7.jpg", title: "Urnový hrob" },
   { id: 3001, category: "Urnové hroby", image: "/urnaky/20190730-204826-1.jpg", title: "Urnový hrob" },
   { id: 3002, category: "Urnové hroby", image: "/urnaky/20200115-133148-1.jpg", title: "Urnový hrob" },

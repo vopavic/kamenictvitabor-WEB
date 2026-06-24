@@ -21,20 +21,6 @@ const navLinks = [
 
 const PHONE_RED = "bg-[#ca2020] hover:bg-[#a81a1a]"
 
-function DesktopLink({ link, pathname }: { link: { href: string; label: string }; pathname: string }) {
-  return (
-    <Link
-      href={link.href}
-      className={cn(
-        "text-sm font-medium transition-colors hover:text-accent font-body uppercase tracking-wider whitespace-nowrap",
-        pathname === link.href ? "text-accent" : "text-foreground/80"
-      )}
-    >
-      {link.label}
-    </Link>
-  )
-}
-
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false)
   const pathname = usePathname()
@@ -84,12 +70,13 @@ export function Navbar() {
           </a>
         </nav>
 
-        {/* Mobile/tablet: phone pill + menu button */}
-        <div className="flex items-center gap-2 lg:hidden">
+        {/* Right side: Phone CTA + Mobile menu */}
+        <div className="flex items-center gap-2">
+          {/* Phone — vždy plné číslo, červený pill */}
           <a
             href={`tel:${siteConfig.phone}`}
             className={cn(
-              "hidden sm:flex items-center gap-2 px-3 py-2 text-white rounded-full font-body font-semibold text-sm transition-colors shadow-sm whitespace-nowrap",
+              "hidden sm:flex items-center gap-2 px-3 lg:px-4 py-2 text-white rounded-full font-body font-semibold text-sm transition-colors shadow-sm whitespace-nowrap",
               PHONE_RED
             )}
           >
@@ -97,8 +84,9 @@ export function Navbar() {
             {siteConfig.phoneFormatted}
           </a>
 
+          {/* Mobile Menu Button */}
           <button
-            className="p-2 text-foreground hover:text-accent transition-colors"
+            className="lg:hidden p-2 text-foreground hover:text-accent transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
