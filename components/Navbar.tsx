@@ -52,22 +52,20 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Navigation — odkazy · telefon vpravo */}
+        {/* Desktop Navigation — odkazy (telefon je jako CTA vpravo) */}
         <nav className="hidden lg:flex items-center gap-4 xl:gap-7">
           {navLinks.map((link) => (
-            <DesktopLink key={link.href} link={link} pathname={pathname} />
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-accent font-body uppercase tracking-wider whitespace-nowrap",
+                pathname === link.href ? "text-accent" : "text-foreground/80"
+              )}
+            >
+              {link.label}
+            </Link>
           ))}
-
-          <a
-            href={`tel:${siteConfig.phone}`}
-            className={cn(
-              "flex items-center gap-2 px-4 py-2 text-white rounded-full font-body font-semibold text-sm transition-colors shadow-sm whitespace-nowrap",
-              PHONE_RED
-            )}
-          >
-            <Phone size={16} />
-            {siteConfig.phoneFormatted}
-          </a>
         </nav>
 
         {/* Right side: Phone CTA + Mobile menu */}
