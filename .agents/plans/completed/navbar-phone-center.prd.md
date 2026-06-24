@@ -1,4 +1,6 @@
-# Navbar — odstranění „Domů" a telefon doprostřed menu
+# Navbar — odstranění „Domů" a telefon jako červené CTA na konci menu
+
+> **Revize při implementaci (2026-06-10):** Uživatel změnil umístění telefonu — místo doprostřed menu jde **na konec menu vpravo**. Dále rozhodnuto: telefon vždy plné číslo (žádné zkrácení na „Zavolat"), pill v červené **#ca2020** (globální accent zůstává bronzový).
 
 ## Problem Statement
 
@@ -21,11 +23,11 @@ Ověříme vizuální kontrolou na všech breakpointech — telefon je opticky d
 
 Úprava komponenty `components/Navbar.tsx`. Z pole `navLinks` se odstraní položka „Domů" (logo vlevo zůstává a nadále odkazuje na `/`). Desktopová navigace se přeskládá na symetrický vzor kolem telefonu: **O nás · Naše služby · Vzorník · [📞 +420 606 807 389] · Realizace · Kontakt · Konzultace**. Telefon si zachová současný styl accent pill tlačítka (barevný zaoblený pill s ikonou sluchátka), pouze se přesune z pravého okraje doprostřed menu. Mobilní chování zůstává beze změny logiky — hamburger drawer jen přestane zobrazovat „Domů" (6 položek + telefonní tlačítko dole).
 
-### Schválený layout (desktop)
+### Schválený layout (desktop) — finální verze
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────────────┐
-│ [LOGO]      O NÁS  SLUŽBY  VZORNÍK  (📞 +420 606 807 389)  REALIZACE  KONTAKT  KONZULTACE │
+│ [LOGO]      O NÁS  NAŠE SLUŽBY  VZORNÍK  REALIZACE  KONTAKT  KONZULTACE  (📞 +420 606 807 389) │
 └──────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -48,14 +50,14 @@ Ověříme vizuální kontrolou na všech breakpointech — telefon je opticky d
 | Metric | Target | How Measured |
 |--------|--------|--------------|
 | Navigace bez „Domů", logo → `/` funkční | 100 % stránek | Manuální proklik všech 7 rout |
-| Telefon uprostřed menu na desktopu (≥ md) | Vizuálně střed mezi 3+3 položkami | Vizuální kontrola / screenshot na md, lg, xl |
+| Telefon (červený pill, plné číslo) na konci menu na desktopu (≥ lg) | Bez přetečení/zalomení | Vizuální kontrola / screenshot na 1024, 1280, 1440 |
 | Žádná regrese mobilního menu | Drawer: 6 položek + tel. tlačítko | Manuální test na < md šířce |
 | Build a lint bez chyb | `next build` + `eslint` zelené | CI / lokální spuštění |
 
 ## Open Questions
 
-- [ ] Na šířce `md`–`lg` se 6 uppercase položek + plné číslo nemusí vejdout do jednoho řádku — ponechat současné chování (zkrácení na „Zavolat" pod `lg`), nebo zmenšit mezery (`gap`)? Rozhodne se při implementaci podle reálného vykreslení.
-- [ ] Má telefon uprostřed zobrazovat plné číslo už od `md` (priorita CTA), i za cenu těsnějšího menu?
+- [x] Zkrácení čísla na „Zavolat" — **rozhodnuto: nikdy nezkracovat, vždy plné číslo**. Desktop menu se proto zobrazuje až od `lg` (1024 px); pod ním hamburger + telefonní pill.
+- [x] Barva pillu — **rozhodnuto: červená #ca2020** (globální accent #c5a059 beze změny).
 
 ## Implementation Phases
 

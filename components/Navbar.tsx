@@ -9,36 +9,17 @@ import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { siteConfig } from "@/lib/site-config"
 
-// Desktop: 3 položky · telefon · 3 položky (logo vlevo nahrazuje „Domů")
-const leftLinks = [
+// „Domů" nahrazuje logo vlevo; telefon je na konci menu vpravo
+const navLinks = [
   { href: "/o-nas", label: "O nás" },
   { href: "/sluzby", label: "Naše služby" },
   { href: "/vzornik", label: "Vzorník" },
-]
-
-const rightLinks = [
   { href: "/realizace", label: "Realizace" },
   { href: "/kontakt", label: "Kontakt" },
   { href: "/konzultace", label: "Konzultace" },
 ]
 
-const navLinks = [...leftLinks, ...rightLinks]
-
 const PHONE_RED = "bg-[#ca2020] hover:bg-[#a81a1a]"
-
-function DesktopLink({ link, pathname }: { link: { href: string; label: string }; pathname: string }) {
-  return (
-    <Link
-      href={link.href}
-      className={cn(
-        "text-sm font-medium transition-colors hover:text-accent font-body uppercase tracking-wider whitespace-nowrap",
-        pathname === link.href ? "text-accent" : "text-foreground/80"
-      )}
-    >
-      {link.label}
-    </Link>
-  )
-}
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -71,34 +52,29 @@ export function Navbar() {
           </span>
         </Link>
 
-        {/* Desktop Navigation — 3 položky · telefon · 3 položky */}
-        <nav className="hidden lg:flex items-center gap-4 xl:gap-7">
-          {leftLinks.map((link) => (
-            <DesktopLink key={link.href} link={link} pathname={pathname} />
-          ))}
-
-          <a
-            href={`tel:${siteConfig.phone}`}
-            className={cn(
-              "flex items-center gap-2 px-4 py-2 text-white rounded-full font-body font-semibold text-sm transition-colors shadow-sm whitespace-nowrap",
-              PHONE_RED
-            )}
-          >
-            <Phone size={16} />
-            {siteConfig.phoneFormatted}
-          </a>
-
-          {rightLinks.map((link) => (
-            <DesktopLink key={link.href} link={link} pathname={pathname} />
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-7">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={cn(
+                "text-sm font-medium transition-colors hover:text-accent font-body uppercase tracking-wider whitespace-nowrap",
+                pathname === link.href ? "text-accent" : "text-foreground/80"
+              )}
+            >
+              {link.label}
+            </Link>
           ))}
         </nav>
 
-        {/* Mobile/tablet: phone pill + menu button */}
-        <div className="flex items-center gap-2 lg:hidden">
+        {/* Right side: Phone CTA + Mobile menu */}
+        <div className="flex items-center gap-2">
+          {/* Phone — vždy plné číslo, červený pill */}
           <a
             href={`tel:${siteConfig.phone}`}
             className={cn(
-              "hidden sm:flex items-center gap-2 px-3 py-2 text-white rounded-full font-body font-semibold text-sm transition-colors shadow-sm whitespace-nowrap",
+              "hidden sm:flex items-center gap-2 px-3 lg:px-4 py-2 text-white rounded-full font-body font-semibold text-sm transition-colors shadow-sm whitespace-nowrap",
               PHONE_RED
             )}
           >
@@ -106,8 +82,9 @@ export function Navbar() {
             {siteConfig.phoneFormatted}
           </a>
 
+          {/* Mobile Menu Button */}
           <button
-            className="p-2 text-foreground hover:text-accent transition-colors"
+            className="lg:hidden p-2 text-foreground hover:text-accent transition-colors"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
