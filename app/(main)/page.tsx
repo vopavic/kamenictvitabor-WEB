@@ -5,7 +5,7 @@ import { ArrowRight, Hammer, PenTool, RefreshCcw, Award, MapPin, CheckCircle, St
 import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} | ${siteConfig.tagline}`,
+  title: { absolute: "Kamenictví Kámen Tábor Hňupovi - Pomníky, kuchyňské desky a jiné kamenické výrobky" },
   description: siteConfig.description,
   alternates: { canonical: "/" },
 }
