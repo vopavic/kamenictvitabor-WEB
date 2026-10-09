@@ -1,9 +1,9 @@
 import type { Metadata } from "next"
 import { Phone, MapPin, Mail, Clock } from "lucide-react"
-import { Button } from "@/components/ui/Button"
 import { siteConfig } from "@/lib/site-config"
 import { JsonLd } from "@/components/JsonLd"
 import { breadcrumbJsonLd } from "@/lib/structured-data"
+import { ContactForm } from "./ContactForm"
 
 export const metadata: Metadata = {
   title: "Kontakt — telefon, email, adresa dílny",
@@ -118,51 +118,7 @@ export default function ContactPage() {
             {/* Right Column: Contact Form */}
             <div className="bg-white p-8 border border-stone-200 shadow-sm rounded-sm">
               <h2 className="font-heading text-2xl font-bold mb-6 text-foreground">Napište nám</h2>
-              <form className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium text-foreground">Jméno</label>
-                    <input 
-                      id="name" 
-                      type="text" 
-                      className="flex h-12 w-full rounded-md border border-stone-300 bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent transition-shadow"
-                      placeholder="Jan Novák"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium text-foreground">Telefon</label>
-                    <input 
-                      id="phone" 
-                      type="tel" 
-                      className="flex h-12 w-full rounded-md border border-stone-300 bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent transition-shadow"
-                      placeholder="+420 777 000 000"
-                    />
-                  </div>
-                </div>
-                
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium text-foreground">Email</label>
-                  <input 
-                    id="email" 
-                    type="email" 
-                    className="flex h-12 w-full rounded-md border border-stone-300 bg-background px-3 py-2 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent transition-shadow"
-                    placeholder="jan.novak@example.com"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium text-foreground">Zpráva</label>
-                  <textarea 
-                    id="message" 
-                    className="flex w-full rounded-md border border-stone-300 bg-background px-3 py-2 text-sm min-h-[150px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:border-transparent transition-shadow resize-y"
-                    placeholder="Dobrý den, měl bych zájem o..."
-                  />
-                </div>
-
-                <Button className="w-full text-lg h-12 mt-4" size="lg">
-                  Odeslat zprávu
-                </Button>
-              </form>
+              <ContactForm />
             </div>
 
           </div>
